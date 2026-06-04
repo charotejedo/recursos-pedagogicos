@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 8 · Digitalización del Entorno de Aprendizaje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--a:#4361ee;--a2:#00c2e0;--al:rgba(67,97,238,.12);--dark:#001022}
+body{font-family:'Poppins',sans-serif;background:#f3f4f8;color:#1a1a2e;min-height:100vh}
+
+/* ─── NAV ─── */
+nav{position:sticky;top:0;z-index:100;background:rgba(0,10,34,.96);
+  backdrop-filter:blur(12px);padding:13px 24px;
+  display:flex;align-items:center;gap:16px}
+nav a.back{display:inline-flex;align-items:center;gap:8px;color:#fff;
+  text-decoration:none;font-size:.88rem;font-weight:600;
+  background:rgba(67,97,238,.25);border:1px solid rgba(67,97,238,.4);
+  padding:6px 14px;border-radius:100px;transition:background .2s}
+nav a.back:hover{background:rgba(67,97,238,.4)}
+nav .nav-title{color:rgba(255,255,255,.55);font-size:.85rem}
+
+/* ─── HERO ─── */
+.hero{background:linear-gradient(135deg,#4361ee 0%,#00c2e0 100%);
+  padding:64px 24px 56px;text-align:center;color:#fff;
+  clip-path:ellipse(100% 100% at 50% 0%)}
+.hero .badge{display:inline-block;background:rgba(255,255,255,.2);border-radius:100px;
+  padding:6px 18px;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:18px}
+.hero h1{font-size:clamp(1.7rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:12px}
+.hero p{font-size:1rem;opacity:.8;max-width:500px;margin:0 auto}
+
+/* ─── QUICK LINKS ─── */
+.qlinks{display:flex;flex-wrap:wrap;gap:8px;max-width:900px;margin:30px auto 0;padding:0 22px}
+.qlinks a{background:#fff;border:1.5px solid #e2e6f0;border-radius:100px;
+  padding:6px 14px;font-size:.78rem;font-weight:600;color:#444;text-decoration:none;
+  transition:background .2s,border-color .2s,color .2s}
+.qlinks a:hover{background:var(--a);border-color:var(--a);color:#fff}
+
+/* ─── MAIN ─── */
+main{max-width:900px;margin:28px auto 80px;padding:0 22px}
+
+/* ─── ACCORDION ─── */
+details{background:#fff;border-radius:18px;margin-bottom:14px;
+  border:2px solid #e8ecf4;overflow:hidden;
+  transition:border-color .25s,box-shadow .25s}
+details[open]{border-color:var(--a);box-shadow:0 8px 30px rgba(67,97,238,.1)}
+summary{cursor:pointer;padding:20px 24px;display:flex;align-items:center;gap:14px;
+  font-weight:700;font-size:.97rem;list-style:none;user-select:none;
+  transition:background .15s}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:#fafbfc}
+.snum{background:var(--al);color:var(--a);width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:.83rem;
+  font-weight:800;flex-shrink:0}
+.sarrow{margin-left:auto;font-size:.8rem;color:#aaa;transition:transform .3s}
+details[open] .sarrow{transform:rotate(90deg)}
+.sbody{padding:4px 24px 28px}
+
+/* ─── CONTENT ELEMENTS ─── */
+p{line-height:1.7;margin-bottom:12px;font-size:.95rem}
+p:last-child{margin-bottom:0}
+h3{font-size:1.05rem;font-weight:700;margin:22px 0 10px;color:#1a1a2e}
+ul,ol{padding-left:20px;margin-bottom:14px}
+li{margin-bottom:7px;line-height:1.6;font-size:.93rem}
+
+/* Content boxes */
+.box{border-radius:12px;padding:16px 20px;margin:18px 0;font-size:.92rem}
+.box-key{background:#f0f4ff;border-left:4px solid var(--a)}
+.box-key .label{font-weight:700;color:var(--a);display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.box-activity{background:#f0fff4;border-left:4px solid #22c55e}
+.box-activity .label{font-weight:700;color:#16a34a;display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.box-tip{background:#fffbeb;border-left:4px solid #f59e0b}
+.box-tip .label{font-weight:700;color:#b45309;display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.box-warn{background:#fff2f2;border-left:4px solid #ef4444}
+.box-warn .label{font-weight:700;color:#dc2626;display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.box-fact{background:#f0fffe;border-left:4px solid #00c2e0}
+.box-fact .label{font-weight:700;color:#0284a7;display:flex;align-items:center;gap:6px;margin-bottom:8px}
+
+/* Tables */
+.tbl{width:100%;border-collapse:collapse;margin:16px 0;font-size:.88rem;border-radius:12px;overflow:hidden}
+.tbl th{background:var(--a);color:#fff;padding:10px 14px;text-align:left;font-weight:600}
+.tbl td{padding:9px 14px;border-bottom:1px solid #f0f0f0}
+.tbl tr:nth-child(even) td{background:#f5f7ff}
+.tbl tr:last-child td{border-bottom:none}
+
+/* Code inline */
+code{background:#f0f4ff;color:var(--a);padding:2px 7px;border-radius:5px;font-size:.85rem;font-family:monospace}
+
+/* Self-assessment */
+.quiz{counter-reset:q}
+.quiz li{counter-increment:q;position:relative;list-style:none;
+  background:#fff;border:1.5px solid #e8ecf4;border-radius:12px;
+  padding:14px 18px 14px 52px;margin-bottom:10px;font-size:.9rem}
+.quiz li::before{content:counter(q);position:absolute;left:14px;top:12px;
+  background:var(--a);color:#fff;width:26px;height:26px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="back">← Inicio</a>
+  <span class="nav-title">Unidad 8 · Digitalización del Entorno de Aprendizaje</span>
+</nav>
+
+<div class="hero">
+  <div class="badge">Unidad 8</div>
+  <h1>💻 Digitalización del Entorno Personal de Aprendizaje</h1>
+  <p>Tecnología y Digitalización · 2.º ESO</p>
+</div>
+
+<div class="qlinks">
+  <a href="#s1">1. Hardware y software</a>
+  <a href="#s2">2. Archivos y backups</a>
+  <a href="#s3">3. Internet</a>
+  <a href="#s4">4. Búsqueda de info</a>
+  <a href="#s5">5. Uso seguro</a>
+  <a href="#s6">6. Seguridad en la red</a>
+  <a href="#s7">7. Responsabilidad digital</a>
+  <a href="#s8">8. Apps y móviles</a>
+  <a href="#auto">✏️ Autoevaluación</a>
+</div>
+
+<main>
+
+<!-- ─── S1 ─── -->
+<details open id="s1">
+  <summary>
+    <span class="snum">1</span>
+    🖥️ Dispositivos digitales: hardware y software
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <p>Un <strong>dispositivo digital</strong> es cualquier aparato que procesa información en forma de ceros y unos (código binario): ordenadores, tabletas, móviles, consolas, smart TVs…</p>
+
+    <h3>Hardware: la parte física</h3>
+    <p>Todo lo que puedes tocar en un dispositivo es <em>hardware</em>.</p>
+    <table class="tbl">
+      <thead><tr><th>Componente</th><th>Función</th><th>Analogía</th></tr></thead>
+      <tbody>
+        <tr><td><strong>CPU (procesador)</strong></td><td>Realiza todos los cálculos y ejecuta instrucciones</td><td>El cerebro</td></tr>
+        <tr><td><strong>RAM</strong></td><td>Almacena temporalmente los datos activos</td><td>La mesa de trabajo</td></tr>
+        <tr><td><strong>SSD / HDD</strong></td><td>Almacena datos de forma permanente</td><td>El armario</td></tr>
+        <tr><td><strong>Tarjeta gráfica (GPU)</strong></td><td>Procesa imágenes y vídeo</td><td>El artista del equipo</td></tr>
+        <tr><td><strong>Placa base</strong></td><td>Conecta y comunica todos los componentes</td><td>Las carreteras de la ciudad</td></tr>
+        <tr><td><strong>Periféricos de entrada</strong></td><td>Introducen datos (teclado, ratón, micrófono)</td><td>Los sentidos</td></tr>
+        <tr><td><strong>Periféricos de salida</strong></td><td>Muestran resultados (pantalla, altavoces, impresora)</td><td>La expresión</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Software: la parte lógica</h3>
+    <ul>
+      <li><strong>Sistema operativo (SO):</strong> gestiona el hardware y es la base para ejecutar los demás programas. Ej.: Windows, macOS, Linux, Android, iOS.</li>
+      <li><strong>Aplicaciones:</strong> programas para tareas concretas. Ej.: navegador, editor de texto, juego, app de música.</li>
+      <li><strong>Controladores (drivers):</strong> permiten que el SO se comunique con cada pieza de hardware específica.</li>
+    </ul>
+
+    <div class="box box-key">
+      <div class="label">🔑 Concepto clave</div>
+      Modelo de Von Neumann: todos los ordenadores siguen el flujo <strong>Entrada → Procesamiento → Almacenamiento → Salida</strong>. La CPU lee instrucciones de la RAM, las ejecuta y devuelve resultados.
+    </div>
+
+    <div class="box box-activity">
+      <div class="label">🎯 Actividad</div>
+      Abre el "Administrador de tareas" (Windows) o el "Monitor de actividad" (Mac). Abre varias aplicaciones y observa cómo cambia el uso de CPU y RAM. ¿Qué ocurre cuando abres muchas a la vez?
+    </div>
+  </div>
+</details>
+
+<!-- ─── S2 ─── -->
+<details id="s2">
+  <summary>
+    <span class="snum">2</span>
+    📁 Organización y almacenamiento seguro
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <h3>Formatos de archivo</h3>
+    <p>La <strong>extensión</strong> (las letras tras el punto) indica el formato y el tipo de contenido:</p>
+    <table class="tbl">
+      <thead><tr><th>Tipo</th><th>Formatos comunes</th><th>Se abre con…</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Texto / Documentos</strong></td><td>.txt &nbsp;.docx &nbsp;.pdf &nbsp;.odt</td><td>Word, LibreOffice, Acrobat</td></tr>
+        <tr><td><strong>Imágenes</strong></td><td>.jpg &nbsp;.png &nbsp;.gif &nbsp;.svg</td><td>Visor de fotos, Photoshop, GIMP</td></tr>
+        <tr><td><strong>Audio</strong></td><td>.mp3 &nbsp;.wav &nbsp;.flac &nbsp;.ogg</td><td>Reproductor de música, Audacity</td></tr>
+        <tr><td><strong>Vídeo</strong></td><td>.mp4 &nbsp;.mkv &nbsp;.avi &nbsp;.mov</td><td>VLC, Windows Media Player</td></tr>
+        <tr><td><strong>Comprimidos</strong></td><td>.zip &nbsp;.rar &nbsp;.7z</td><td>WinRAR, 7-Zip</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Buenas prácticas para organizar archivos</h3>
+    <ul>
+      <li>Usa carpetas con nombres claros: <code>Curso → Asignatura → Tema</code></li>
+      <li>Nombra los archivos con fecha y descripción: <code>2026-06-03_apuntes_tema7.docx</code></li>
+      <li>Evita nombres genéricos como "documento1" o "sin título".</li>
+      <li>Borra regularmente los archivos que ya no necesitas.</li>
+    </ul>
+
+    <h3>Copias de seguridad (backups)</h3>
+    <p>Una <strong>copia de seguridad</strong> es una copia de tus datos guardada en un lugar diferente al original para recuperarlos si los pierdes (robo, avería, borrado accidental).</p>
+    <div class="box box-key">
+      <div class="label">🔑 Regla 3-2-1</div>
+      <ul style="margin:0;padding-left:18px">
+        <li><strong>3</strong> copias de tus datos</li>
+        <li>en <strong>2</strong> soportes diferentes (ej.: SSD externo + nube)</li>
+        <li>con <strong>1</strong> copia fuera de tu casa (cloud: Google Drive, iCloud…)</li>
+      </ul>
+    </div>
+    <div class="box box-tip">
+      <div class="label">💡 Hazlo ahora</div>
+      ¿Tienes copias de seguridad de tus apuntes? Activa la sincronización automática en Google Drive o iCloud y ya tendrás una copia en la nube siempre actualizada.
+    </div>
+  </div>
+</details>
+
+<!-- ─── S3 ─── -->
+<details id="s3">
+  <summary>
+    <span class="snum">3</span>
+    🌐 Sistemas de comunicación digital: Internet
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <p><strong>Internet</strong> es una red global de millones de ordenadores y dispositivos interconectados que se comunican usando protocolos comunes. No tiene un centro ni dueño único.</p>
+    <ul>
+      <li><strong>Dirección IP:</strong> identificador único de cada dispositivo en la red (ej.: 192.168.1.1).</li>
+      <li><strong>HTTP / HTTPS:</strong> protocolo para transferir páginas web. La <em>S</em> de HTTPS indica conexión cifrada y segura.</li>
+      <li><strong>DNS:</strong> traduce los nombres de dominio legibles (google.com) en direcciones IP numéricas.</li>
+    </ul>
+
+    <div class="box box-key">
+      <div class="label">🔑 Internet ≠ Web</div>
+      <strong>Internet</strong> es la infraestructura (cables, routers, protocolos). La <strong>Web (WWW)</strong> es solo uno de sus servicios: el conjunto de páginas accesibles con un navegador. También usan Internet: el correo, las videollamadas, los juegos online, etc.
+    </div>
+
+    <h3>Tipos de conexión</h3>
+    <table class="tbl">
+      <thead><tr><th>Tipo</th><th>Velocidad típica</th><th>Características</th></tr></thead>
+      <tbody>
+        <tr><td>Cable (fibra óptica)</td><td>100 Mbps – 1 Gbps</td><td>Rápida, estable, requiere instalación física</td></tr>
+        <tr><td>WiFi</td><td>50 – 600 Mbps</td><td>Sin cables, para interiores, puede haber interferencias</td></tr>
+        <tr><td>4G / 5G</td><td>50 – 1000 Mbps</td><td>Móvil, funciona en casi cualquier lugar</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+<!-- ─── S4 ─── -->
+<details id="s4">
+  <summary>
+    <span class="snum">4</span>
+    🔍 Búsqueda de información
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <h3>Cómo buscar de forma eficaz</h3>
+    <ul>
+      <li>Usa <strong>palabras clave concretas</strong> en lugar de frases completas.</li>
+      <li>Escribe entre comillas para buscar una frase exacta: <code>"cambio climático causas"</code></li>
+      <li>Usa <code>-</code> para excluir términos: <code>jaguar -coche -animal</code></li>
+      <li>Filtra por fecha para encontrar información reciente.</li>
+      <li>Prueba distintos buscadores: Google, Bing, DuckDuckGo (este último respeta más tu privacidad).</li>
+    </ul>
+
+    <h3>¿Cómo sé si una fuente es fiable?</h3>
+    <p>Antes de usar o compartir información, hazte estas preguntas:</p>
+    <ol>
+      <li><strong>¿Quién lo escribe?</strong> ¿Es un experto, una institución oficial, un medio reconocido?</li>
+      <li><strong>¿Cuándo fue publicado?</strong> ¿La información está actualizada?</li>
+      <li><strong>¿Cita fuentes?</strong> Los artículos fiables indican de dónde vienen los datos.</li>
+      <li><strong>¿El dominio es sospechoso?</strong> Presta atención a URL extrañas o mal escritas.</li>
+      <li><strong>¿Puedo verificarlo en otra fuente?</strong> Una noticia real aparece en varios medios serios.</li>
+    </ol>
+
+    <div class="box box-activity">
+      <div class="label">🎯 Actividad</div>
+      Busca "energías renovables" y evalúa tres páginas web usando los 5 criterios anteriores. ¿Cuál te parece más fiable? Escribe un párrafo justificando tu elección.
+    </div>
+  </div>
+</details>
+
+<!-- ─── S5 ─── -->
+<details id="s5">
+  <summary>
+    <span class="snum">5</span>
+    🛡️ Uso seguro y responsable de Internet
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <h3>Tu identidad digital</h3>
+    <p>Tu <strong>identidad digital</strong> es la imagen que proyectas en internet: perfiles, fotos, comentarios, publicaciones… Todo eso forma parte de ti en el mundo online.</p>
+
+    <div class="box box-warn">
+      <div class="label">⚠️ Nunca compartas en internet</div>
+      <ul style="margin:0;padding-left:18px">
+        <li>Tu dirección de casa o de tu colegio</li>
+        <li>Tu número de teléfono a desconocidos</li>
+        <li>Fotos o vídeos comprometedores</li>
+        <li>Contraseñas (¡ni a tus mejores amigos!)</li>
+        <li>Información bancaria o datos de tarjetas</li>
+      </ul>
+    </div>
+
+    <h3>Uso responsable del tiempo en pantalla</h3>
+    <ul>
+      <li>Establece horarios para el uso del móvil y del ordenador.</li>
+      <li>Evita pantallas al menos <strong>1 hora antes de dormir</strong> (la luz azul altera el sueño).</li>
+      <li>Combina el tiempo digital con actividad física y tiempo al aire libre.</li>
+      <li>Usa las redes sociales de forma consciente, no compulsiva.</li>
+    </ul>
+
+    <div class="box box-fact">
+      <div class="label">🧠 ¿Sabías que…?</div>
+      Las redes sociales están diseñadas para ser adictivas: usan notificaciones, "me gustas" y scroll infinito para que pases el mayor tiempo posible conectado. Conocer estos mecanismos te ayuda a usarlas de forma más consciente.
+    </div>
+  </div>
+</details>
+
+<!-- ─── S6 ─── -->
+<details id="s6">
+  <summary>
+    <span class="snum">6</span>
+    ⚠️ Seguridad en la red: riesgos y amenazas
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <h3>Amenazas a tus dispositivos</h3>
+    <table class="tbl">
+      <thead><tr><th>Amenaza</th><th>¿Qué hace?</th><th>Cómo protegerte</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Virus</strong></td><td>Se reproduce y daña archivos o el sistema</td><td>Antivirus actualizado, no abrir archivos desconocidos</td></tr>
+        <tr><td><strong>Spyware</strong></td><td>Espía tu actividad y roba datos</td><td>Descargar solo apps de tiendas oficiales</td></tr>
+        <tr><td><strong>Ransomware</strong></td><td>Cifra tus archivos y pide rescate</td><td>Backups regulares, no abrir correos sospechosos</td></tr>
+        <tr><td><strong>Troyano</strong></td><td>Parece legítimo pero hace daño internamente</td><td>Descargar solo de fuentes de confianza</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Phishing: cómo reconocerlo</h3>
+    <p>El <strong>phishing</strong> son mensajes o páginas falsas que imitan a empresas reales (banco, correos, Netflix…) para robarte contraseñas o datos. Señales de alerta:</p>
+    <ul>
+      <li>El remitente tiene un email extraño o mal escrito (ej.: <code>soporte@amaz0n-seguro.net</code>).</li>
+      <li>Te piden datos personales con <strong>urgencia</strong>: "Tu cuenta será bloqueada en 24 h".</li>
+      <li>El enlace no coincide con la web real (pasa el ratón por encima antes de hacer clic).</li>
+      <li>Hay faltas de ortografía o diseño chapucero.</li>
+    </ul>
+
+    <h3>Ciberacoso (cyberbullying)</h3>
+    <p>Acoso, insultos o humillaciones a través de medios digitales. Si lo sufres o lo presencias:</p>
+    <ul>
+      <li>No respondas ni te enfrentes al acosador online.</li>
+      <li>Guarda evidencia (capturas de pantalla).</li>
+      <li>Cuéntaselo a un adulto de confianza.</li>
+      <li>Bloquea y denuncia al usuario en la plataforma.</li>
+    </ul>
+
+    <h3>Medidas de protección</h3>
+    <div class="box box-key">
+      <div class="label">🔑 Contraseñas seguras</div>
+      <ul style="margin:0;padding-left:18px">
+        <li>Al menos <strong>12 caracteres</strong>: mezcla letras mayúsculas, minúsculas, números y símbolos.</li>
+        <li>No uses tu nombre, fecha de nacimiento ni palabras del diccionario.</li>
+        <li>Usa una contraseña diferente para cada servicio importante.</li>
+        <li>Activa la <strong>autenticación en dos pasos (2FA)</strong>: además de la contraseña, el sistema te pide un código de un solo uso que llega a tu móvil.</li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+<!-- ─── S7 ─── -->
+<details id="s7">
+  <summary>
+    <span class="snum">7</span>
+    🌱 Responsabilidad digital y buen uso de Internet
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <h3>Tu huella en Internet</h3>
+    <p>Todo lo que haces en internet deja un rastro: las webs que visitas, las fotos que publicas, los comentarios que escribes, las búsquedas que realizas… Eso es tu <strong>huella digital</strong>. Es muy difícil (a veces imposible) borrarla por completo.</p>
+
+    <div class="box box-tip">
+      <div class="label">💡 Regla de oro</div>
+      Antes de publicar algo, pregúntate: <em>"¿Me importaría que esto lo viera mi profe o mis padres dentro de diez años?"</em> Si la respuesta es sí, mejor no lo publiques.
+    </div>
+
+    <h3>Derechos de autor y licencias</h3>
+    <ul>
+      <li>Todo lo que encuentras en internet tiene un autor. Usarlo sin permiso puede ser ilegal.</li>
+      <li><strong>Creative Commons:</strong> licencias que indican qué puedes hacer con una obra (copiar, modificar, uso comercial…). Busca imágenes CC para tus trabajos.</li>
+      <li>Cita siempre las fuentes cuando uses información o imágenes de otros.</li>
+    </ul>
+
+    <h3>Bulos y desinformación (fake news)</h3>
+    <p>Antes de compartir una noticia o mensaje, verifica:</p>
+    <ol>
+      <li>¿De dónde viene la información?</li>
+      <li>¿Lo dicen otros medios serios y conocidos?</li>
+      <li>¿La imagen está sacada de contexto? (haz una búsqueda inversa con Google Images)</li>
+      <li>¿La URL de la página parece real y legítima?</li>
+    </ol>
+
+    <div class="box box-activity">
+      <div class="label">🎯 Actividad</div>
+      Busca en internet un bulo conocido (por ejemplo, sobre salud o ciencia) y explica cómo identificarías que es falso usando los cuatro pasos anteriores.
+    </div>
+  </div>
+</details>
+
+<!-- ─── S8 ─── -->
+<details id="s8">
+  <summary>
+    <span class="snum">8</span>
+    📱 Apps y dispositivos móviles
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <h3>¿Qué es una app?</h3>
+    <p>Una <strong>aplicación móvil (app)</strong> es un programa diseñado para funcionar en dispositivos móviles (smartphones, tabletas). Hay apps gratuitas, de pago y <em>freemium</em> (gratis con funciones extras de pago).</p>
+
+    <h3>Sistemas operativos para móviles</h3>
+    <table class="tbl">
+      <thead><tr><th></th><th>Android</th><th>iOS</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Empresa</strong></td><td>Google</td><td>Apple</td></tr>
+        <tr><td><strong>Cuota de mercado</strong></td><td>≈ 72 %</td><td>≈ 27 %</td></tr>
+        <tr><td><strong>Tienda de apps</strong></td><td>Google Play</td><td>App Store</td></tr>
+        <tr><td><strong>Personalización</strong></td><td>Muy alta</td><td>Más limitada</td></tr>
+        <tr><td><strong>Dispositivos</strong></td><td>Samsung, Xiaomi, Motorola…</td><td>Solo iPhone / iPad</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Permisos de las apps ⚠️</h3>
+    <p>Cuando instalas una app, solicita acceso a partes de tu dispositivo. Lee siempre qué permisos pide y evalúa si tienen sentido:</p>
+    <div class="box box-warn">
+      <div class="label">⚠️ Señal de alerta</div>
+      Una linterna no necesita acceso a tus contactos, tu micrófono ni tu ubicación. Si una app pide permisos que no tienen relación con su función, desconfía y no la instales.
+    </div>
+
+    <h3>¿Cómo se crean las apps?</h3>
+    <ul>
+      <li>Apps nativas para iOS: se programan con <strong>Swift</strong>.</li>
+      <li>Apps nativas para Android: se programan con <strong>Kotlin</strong>.</li>
+      <li>Apps multiplataforma: con <strong>Flutter</strong> o <strong>React Native</strong> (funcionan en ambos sistemas).</li>
+      <li>Sin programar (<em>no-code</em>): con herramientas como <strong>MIT App Inventor</strong>.</li>
+    </ul>
+
+    <div class="box box-activity">
+      <div class="label">🎯 Actividad</div>
+      Entra en <strong>appinventor.mit.edu</strong> y crea una app sencilla que muestre un mensaje al pulsar un botón. No necesitas saber programar: solo arrastrar bloques. ¡Comparte el resultado con tu clase!
+    </div>
+  </div>
+</details>
+
+<!-- ─── AUTOEVALUACIÓN ─── -->
+<div style="background:#fff;border-radius:18px;padding:32px 28px;border:2px solid #e8ecf4;margin-top:24px" id="auto">
+  <h2 style="margin-bottom:6px;font-size:1.4rem">✏️ Autoevaluación</h2>
+  <p style="color:#666;font-size:.88rem;margin-bottom:22px">Responde en tu cuaderno antes de revisar la teoría de nuevo.</p>
+  <ol class="quiz">
+    <li>¿Cuál es la diferencia entre hardware y software? Pon un ejemplo de cada uno.</li>
+    <li>¿Qué función tiene la CPU? ¿Y la RAM? ¿En qué se diferencian?</li>
+    <li>¿Para qué sirve una copia de seguridad? Explica la regla 3-2-1.</li>
+    <li>¿Cuál es la diferencia entre Internet y la World Wide Web (WWW)?</li>
+    <li>Nombra tres formatos de archivo de imagen y dos de audio.</li>
+    <li>¿Cómo puedes reconocer un intento de phishing? Cita tres señales de alerta.</li>
+    <li>¿Qué es la huella digital? ¿Por qué es importante gestionarla bien?</li>
+    <li>¿Qué es la autenticación en dos pasos (2FA) y por qué es más segura?</li>
+    <li>¿Cuál es la diferencia entre Android e iOS? ¿Cuál tiene mayor cuota de mercado?</li>
+    <li>¿Por qué debes revisar los permisos que pide una app antes de instalarla? Pon un ejemplo de permiso sospechoso.</li>
+  </ol>
+</div>
+
+</main>
+
+<footer style="text-align:center;padding:28px 20px;color:#aaa;font-size:.82rem;border-top:1px solid #e8ecf4">
+  <a href="index.html" style="color:var(--a);text-decoration:none;font-weight:600">← Volver al portal</a> &nbsp;·&nbsp; Tecnología y Digitalización · 2.º ESO
+</footer>
+
+</body>
+</html>

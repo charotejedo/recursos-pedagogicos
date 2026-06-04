@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tecnología y Digitalización · 2.º ESO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;background:#0b0b1a;color:#fff;min-height:100vh;overflow-x:hidden}
+
+/* ─── Animated BG ─── */
+.bg{position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(ellipse at 15% 20%,rgba(255,107,53,.22) 0%,transparent 45%),
+    radial-gradient(ellipse at 85% 80%,rgba(67,97,238,.22) 0%,transparent 45%),
+    #0b0b1a}
+
+/* ─── Floating particles ─── */
+.pts{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.pt{position:absolute;border-radius:50%;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(105vh);opacity:0}8%{opacity:1}92%{opacity:.8}100%{transform:translateY(-10vh);opacity:0}}
+
+/* ─── Header ─── */
+header{text-align:center;padding:72px 20px 56px}
+.pill{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  border-radius:100px;padding:8px 22px;font-size:.76rem;letter-spacing:2.5px;
+  text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:26px;backdrop-filter:blur(8px)}
+h1{font-size:clamp(2.2rem,7vw,4.8rem);font-weight:800;line-height:1.06;margin-bottom:18px}
+.grd{background:linear-gradient(110deg,#ff6b35 0%,#ffd200 38%,#4361ee 70%,#00f5d4 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:1.08rem;color:rgba(255,255,255,.5);max-width:470px;margin:0 auto 64px;line-height:1.65}
+
+/* ─── Cards grid ─── */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:28px;max-width:860px;margin:0 auto;padding:0 22px 100px}
+
+.card{position:relative;background:rgba(255,255,255,.065);border:1.5px solid rgba(255,255,255,.1);
+  border-radius:24px;padding:44px 36px 36px;text-decoration:none;color:#fff;overflow:hidden;
+  backdrop-filter:blur(12px);
+  transition:transform .35s cubic-bezier(.2,.6,.2,1),box-shadow .35s,border-color .3s}
+.card:hover{transform:translateY(-12px)}
+.card-u7:hover{border-color:rgba(255,107,53,.55);box-shadow:0 36px 80px rgba(255,107,53,.18)}
+.card-u8:hover{border-color:rgba(67,97,238,.55);box-shadow:0 36px 80px rgba(67,97,238,.18)}
+
+/* top stripe */
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px}
+.card-u7::before{background:linear-gradient(90deg,#ff6b35,#ffd200)}
+.card-u8::before{background:linear-gradient(90deg,#4361ee,#00f5d4)}
+
+/* background glow orb */
+.card::after{content:'';position:absolute;top:10px;right:10px;width:130px;height:130px;
+  border-radius:50%;opacity:.055;transition:opacity .3s}
+.card:hover::after{opacity:.13}
+.card-u7::after{background:#ff6b35}
+.card-u8::after{background:#4361ee}
+
+.icon{font-size:3.8rem;display:block;margin-bottom:18px;animation:bob 3.5s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+.unit-no{font-size:.72rem;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,.4);margin-bottom:8px}
+.card h2{font-size:1.62rem;font-weight:700;line-height:1.2;margin-bottom:20px}
+
+.topics{list-style:none;margin-bottom:32px}
+.topics li{display:flex;align-items:center;gap:10px;padding:7px 0;
+  font-size:.875rem;color:rgba(255,255,255,.58);border-bottom:1px solid rgba(255,255,255,.06)}
+.topics li:last-child{border-bottom:none}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.dot-u7{background:#ff6b35}.dot-u8{background:#4361ee}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 28px;border-radius:100px;
+  font-weight:700;font-size:.93rem;text-decoration:none;
+  transition:gap .25s ease,transform .2s ease}
+.btn:hover{gap:18px;transform:scale(1.04)}
+.btn-u7{background:linear-gradient(90deg,#ff6b35,#ffd200);color:#1a0800}
+.btn-u8{background:linear-gradient(90deg,#4361ee,#00f5d4);color:#001022}
+
+/* ─── Footer ─── */
+footer{text-align:center;padding:28px 20px;
+  color:rgba(255,255,255,.28);font-size:.82rem;border-top:1px solid rgba(255,255,255,.06)}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="pts">
+  <div class="pt" style="width:5px;height:5px;left:7%;background:#ff6b35;animation-duration:19s;animation-delay:0s"></div>
+  <div class="pt" style="width:3px;height:3px;left:21%;background:#ffd200;animation-duration:25s;animation-delay:5s"></div>
+  <div class="pt" style="width:7px;height:7px;left:38%;background:#4361ee;animation-duration:21s;animation-delay:2s"></div>
+  <div class="pt" style="width:4px;height:4px;left:54%;background:#00f5d4;animation-duration:17s;animation-delay:8s"></div>
+  <div class="pt" style="width:6px;height:6px;left:69%;background:#ff6b35;animation-duration:23s;animation-delay:11s"></div>
+  <div class="pt" style="width:3px;height:3px;left:83%;background:#ffd200;animation-duration:20s;animation-delay:6s"></div>
+  <div class="pt" style="width:5px;height:5px;left:93%;background:#4361ee;animation-duration:27s;animation-delay:1s"></div>
+</div>
+
+<header>
+  <div class="pill">📚 Tecnología y Digitalización</div>
+  <h1>Portal de Recursos<br><span class="grd">2.º ESO</span></h1>
+  <p class="sub">Elige tu unidad didáctica. Teoría clara, actividades prácticas y autoevaluación para aprender a tu ritmo.</p>
+</header>
+
+<div class="grid">
+
+  <a href="unidad7.html" class="card card-u7">
+    <span class="icon">⚡</span>
+    <div class="unit-no">Unidad 7</div>
+    <h2>Electricidad Básica</h2>
+    <ul class="topics">
+      <li><span class="dot dot-u7"></span>Energía eléctrica</li>
+      <li><span class="dot dot-u7"></span>Conductores y aislantes</li>
+      <li><span class="dot dot-u7"></span>Circuitos y esquemas</li>
+      <li><span class="dot dot-u7"></span>Ley de Ohm</li>
+      <li><span class="dot dot-u7"></span>Serie, paralelo y mixto</li>
+      <li><span class="dot dot-u7"></span>Energía y medio ambiente</li>
+    </ul>
+    <span class="btn btn-u7">Empezar unidad →</span>
+  </a>
+
+  <a href="unidad8.html" class="card card-u8">
+    <span class="icon">💻</span>
+    <div class="unit-no">Unidad 8</div>
+    <h2>Digitalización del Entorno de Aprendizaje</h2>
+    <ul class="topics">
+      <li><span class="dot dot-u8"></span>Hardware y software</li>
+      <li><span class="dot dot-u8"></span>Organización y backups</li>
+      <li><span class="dot dot-u8"></span>Internet y redes</li>
+      <li><span class="dot dot-u8"></span>Seguridad digital</li>
+      <li><span class="dot dot-u8"></span>Responsabilidad online</li>
+      <li><span class="dot dot-u8"></span>Apps y dispositivos móviles</li>
+    </ul>
+    <span class="btn btn-u8">Empezar unidad →</span>
+  </a>
+
+</div>
+
+<footer>
+  <p>Tecnología y Digitalización · 2.º ESO · Aula de Charo Tejedo</p>
+</footer>
+</body>
+</html>

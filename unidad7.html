@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 7 · Electricidad Básica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--a:#ff6b35;--a2:#ffd200;--al:rgba(255,107,53,.12);--dark:#1a0d00}
+body{font-family:'Poppins',sans-serif;background:#f3f4f8;color:#1a1a2e;min-height:100vh}
+
+/* ─── NAV ─── */
+nav{position:sticky;top:0;z-index:100;background:rgba(26,13,0,.96);
+  backdrop-filter:blur(12px);padding:13px 24px;
+  display:flex;align-items:center;gap:16px}
+nav a.back{display:inline-flex;align-items:center;gap:8px;color:#fff;
+  text-decoration:none;font-size:.88rem;font-weight:600;
+  background:rgba(255,107,53,.25);border:1px solid rgba(255,107,53,.4);
+  padding:6px 14px;border-radius:100px;transition:background .2s}
+nav a.back:hover{background:rgba(255,107,53,.4)}
+nav .nav-title{color:rgba(255,255,255,.55);font-size:.85rem}
+
+/* ─── HERO ─── */
+.hero{background:linear-gradient(135deg,#ff6b35 0%,#ffd200 100%);
+  padding:64px 24px 56px;text-align:center;color:#1a0800;
+  clip-path:ellipse(100% 100% at 50% 0%)}
+.hero .badge{display:inline-block;background:rgba(0,0,0,.15);border-radius:100px;
+  padding:6px 18px;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:18px}
+.hero h1{font-size:clamp(2rem,6vw,3.4rem);font-weight:800;line-height:1.1;margin-bottom:12px}
+.hero p{font-size:1rem;opacity:.75;max-width:500px;margin:0 auto}
+
+/* ─── QUICK LINKS ─── */
+.qlinks{display:flex;flex-wrap:wrap;gap:8px;max-width:900px;margin:30px auto 0;padding:0 22px}
+.qlinks a{background:#fff;border:1.5px solid #e2e6f0;border-radius:100px;
+  padding:6px 14px;font-size:.78rem;font-weight:600;color:#444;text-decoration:none;
+  transition:background .2s,border-color .2s,color .2s}
+.qlinks a:hover{background:var(--a);border-color:var(--a);color:#fff}
+
+/* ─── MAIN ─── */
+main{max-width:900px;margin:28px auto 80px;padding:0 22px}
+
+/* ─── ACCORDION ─── */
+details{background:#fff;border-radius:18px;margin-bottom:14px;
+  border:2px solid #e8ecf4;overflow:hidden;
+  transition:border-color .25s,box-shadow .25s}
+details[open]{border-color:var(--a);box-shadow:0 8px 30px rgba(255,107,53,.1)}
+summary{cursor:pointer;padding:20px 24px;display:flex;align-items:center;gap:14px;
+  font-weight:700;font-size:.97rem;list-style:none;user-select:none;
+  transition:background .15s}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:#fafbfc}
+.snum{background:var(--al);color:var(--a);width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:.83rem;
+  font-weight:800;flex-shrink:0}
+.sarrow{margin-left:auto;font-size:.8rem;color:#aaa;transition:transform .3s}
+details[open] .sarrow{transform:rotate(90deg)}
+.sbody{padding:4px 24px 28px 24px}
+
+/* ─── CONTENT ELEMENTS ─── */
+p{line-height:1.7;margin-bottom:12px;font-size:.95rem}
+p:last-child{margin-bottom:0}
+h3{font-size:1.05rem;font-weight:700;margin:22px 0 10px;color:#1a1a2e}
+ul,ol{padding-left:20px;margin-bottom:14px}
+li{margin-bottom:7px;line-height:1.6;font-size:.93rem}
+
+/* Content boxes */
+.box{border-radius:12px;padding:16px 20px;margin:18px 0;font-size:.92rem}
+.box-formula{background:#fff8f0;border-left:4px solid var(--a)}
+.box-formula .formula{font-size:1.3rem;font-weight:800;color:var(--a);
+  text-align:center;padding:10px;display:block;letter-spacing:1px}
+.box-activity{background:#f0fff4;border-left:4px solid #22c55e}
+.box-activity .label{font-weight:700;color:#16a34a;display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.box-tip{background:#fffbeb;border-left:4px solid var(--a2)}
+.box-tip .label{font-weight:700;color:#b45309;display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.box-warn{background:#fff2f2;border-left:4px solid #ef4444}
+.box-warn .label{font-weight:700;color:#dc2626;display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.box-fact{background:#f0f4ff;border-left:4px solid #4361ee}
+.box-fact .label{font-weight:700;color:#4361ee;display:flex;align-items:center;gap:6px;margin-bottom:8px}
+
+/* Tables */
+.tbl{width:100%;border-collapse:collapse;margin:16px 0;font-size:.88rem;border-radius:12px;overflow:hidden}
+.tbl th{background:var(--a);color:#fff;padding:10px 14px;text-align:left;font-weight:600}
+.tbl td{padding:9px 14px;border-bottom:1px solid #f0f0f0}
+.tbl tr:nth-child(even) td{background:#fff8f4}
+.tbl tr:last-child td{border-bottom:none}
+
+/* Self-assessment */
+.quiz{counter-reset:q}
+.quiz li{counter-increment:q;position:relative;list-style:none;
+  background:#fff;border:1.5px solid #e8ecf4;border-radius:12px;
+  padding:14px 18px 14px 52px;margin-bottom:10px;font-size:.9rem}
+.quiz li::before{content:counter(q);position:absolute;left:14px;top:12px;
+  background:var(--a);color:#fff;width:26px;height:26px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="back">← Inicio</a>
+  <span class="nav-title">Unidad 7 · Electricidad Básica</span>
+</nav>
+
+<div class="hero">
+  <div class="badge">Unidad 7</div>
+  <h1>⚡ Electricidad Básica</h1>
+  <p>Tecnología y Digitalización · 2.º ESO</p>
+</div>
+
+<div class="qlinks">
+  <a href="#s1">1. Energía eléctrica</a>
+  <a href="#s2">2. Conductores y aislantes</a>
+  <a href="#s3">3. Componentes</a>
+  <a href="#s4">4. Esquemas</a>
+  <a href="#s5">5. Abierto / Cerrado</a>
+  <a href="#s6">6. Ley de Ohm</a>
+  <a href="#s7">7. Tipos de circuito</a>
+  <a href="#s8">8. Resolución</a>
+  <a href="#s9">9. Conversión energía</a>
+  <a href="#s10">10. Medio ambiente</a>
+  <a href="#auto">✏️ Autoevaluación</a>
+</div>
+
+<main>
+
+<!-- ─── S1 ─── -->
+<details open id="s1">
+  <summary>
+    <span class="snum">1</span>
+    🔋 La electricidad. Energía eléctrica
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <p>La <strong>electricidad</strong> es un fenómeno natural producido por el movimiento de las cargas eléctricas (electrones). Cuando los electrones se desplazan de forma ordenada por un material conductor, se genera una <em>corriente eléctrica</em>.</p>
+    <p>La <strong>energía eléctrica</strong> es la energía asociada a esas cargas en movimiento. Es la forma de energía más usada en nuestro mundo porque es fácil de transportar, distribuir y transformar en otras formas (luz, calor, movimiento…).</p>
+    <div class="box box-fact">
+      <div class="label">🧠 ¿Sabías que…?</div>
+      Un rayo libera en milésimas de segundo tanta energía eléctrica como la que consume una bombilla LED durante un mes entero.
+    </div>
+    <h3>¿De dónde viene la electricidad?</h3>
+    <ul>
+      <li>En las <strong>centrales eléctricas</strong> se produce energía eléctrica a gran escala (central hidroeléctrica, solar, eólica, nuclear…).</li>
+      <li>En los <strong>dispositivos portátiles</strong> se usan pilas y baterías que almacenan energía química y la convierten en eléctrica.</li>
+      <li>Los <strong>paneles solares</strong> convierten directamente la luz del Sol en electricidad.</li>
+    </ul>
+  </div>
+</details>
+
+<!-- ─── S2 ─── -->
+<details id="s2">
+  <summary>
+    <span class="snum">2</span>
+    🔌 Conductores y aislantes
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <p>No todos los materiales dejan pasar la corriente eléctrica igual. En función de eso los clasificamos en:</p>
+    <table class="tbl">
+      <thead><tr><th>Tipo</th><th>¿Qué hace?</th><th>Ejemplos</th><th>Uso típico</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Conductor</strong></td><td>Permite el paso de la corriente</td><td>Cobre, plata, aluminio, agua salada</td><td>Cables, enchufes, componentes</td></tr>
+        <tr><td><strong>Aislante</strong></td><td>Impide el paso de la corriente</td><td>Plástico, goma, madera, vidrio</td><td>Recubrimiento de cables, carcasas</td></tr>
+        <tr><td><strong>Semiconductor</strong></td><td>Conduce solo en ciertas condiciones</td><td>Silicio, germanio</td><td>Transistores, chips, LEDs</td></tr>
+      </tbody>
+    </table>
+    <div class="box box-activity">
+      <div class="label">🎯 Actividad</div>
+      Recorre tu aula o tu casa y clasifica 10 materiales en conductores o aislantes. Anótalos en una tabla. ¿Encontraste algún semiconductor?
+    </div>
+  </div>
+</details>
+
+<!-- ─── S3 ─── -->
+<details id="s3">
+  <summary>
+    <span class="snum">3</span>
+    🔦 El circuito eléctrico. Componentes
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <p>Un <strong>circuito eléctrico</strong> es un camino cerrado por el que circula la corriente eléctrica. Necesita al menos cuatro tipos de elementos:</p>
+
+    <h3>Generadores</h3>
+    <p>Producen la energía que mueve los electrones: pilas, baterías, paneles solares, la toma de corriente de la pared.</p>
+
+    <h3>Conductores</h3>
+    <p>Cables (normalmente de cobre recubierto de plástico) que transportan la corriente de un componente a otro.</p>
+
+    <h3>Receptores</h3>
+    <p>Transforman la energía eléctrica en otra forma útil: bombillas (luz), motores (movimiento), resistencias (calor), zumbadores (sonido).</p>
+
+    <h3>Elementos de control</h3>
+    <p>Permiten abrir o cerrar el circuito: interruptores, pulsadores, conmutadores.</p>
+
+    <table class="tbl">
+      <thead><tr><th>Componente</th><th>Tipo</th><th>Símbolo (texto)</th><th>Función</th></tr></thead>
+      <tbody>
+        <tr><td>Pila / batería</td><td>Generador</td><td>─|+─</td><td>Proporciona energía al circuito</td></tr>
+        <tr><td>Bombilla</td><td>Receptor</td><td>─⊗─</td><td>Convierte electricidad en luz</td></tr>
+        <tr><td>Motor</td><td>Receptor</td><td>─(M)─</td><td>Convierte electricidad en movimiento</td></tr>
+        <tr><td>Resistencia</td><td>Receptor</td><td>─[R]─</td><td>Limita el paso de corriente</td></tr>
+        <tr><td>Interruptor</td><td>Control</td><td>─/──</td><td>Abre o cierra el circuito</td></tr>
+        <tr><td>Cable</td><td>Conductor</td><td>─────</td><td>Transporta la corriente</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+<!-- ─── S4 ─── -->
+<details id="s4">
+  <summary>
+    <span class="snum">4</span>
+    📐 Representación: el esquema eléctrico
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <p>Un <strong>esquema eléctrico</strong> es un dibujo simplificado donde cada componente se representa con su símbolo normalizado internacional en lugar de dibujarlo de forma realista.</p>
+    <h3>Reglas para dibujar un esquema</h3>
+    <ol>
+      <li>Usa siempre los símbolos normalizados.</li>
+      <li>Dibuja líneas <strong>rectas y perpendiculares</strong> para los cables.</li>
+      <li>Los cruces de cables <strong>sin punto</strong> no están conectados; <strong>con punto (•)</strong> sí.</li>
+      <li>Indica el polo positivo (+) y negativo (−) del generador.</li>
+      <li>El circuito debe formar siempre un <strong>camino cerrado</strong>.</li>
+    </ol>
+    <div class="box box-activity">
+      <div class="label">🎯 Actividad</div>
+      Dibuja en tu cuaderno el esquema eléctrico de un circuito con una pila, un interruptor y una bombilla. Luego añade una segunda bombilla en serie y otra en paralelo. ¿Qué diferencia observas?
+    </div>
+  </div>
+</details>
+
+<!-- ─── S5 ─── -->
+<details id="s5">
+  <summary>
+    <span class="snum">5</span>
+    🔴 Circuito abierto, cerrado y cortocircuitos
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <table class="tbl">
+      <thead><tr><th>Tipo</th><th>¿Qué ocurre?</th><th>Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Circuito cerrado</strong></td><td>El camino está completo. La corriente fluye y los receptores funcionan.</td><td>Enciendes la luz del cuarto.</td></tr>
+        <tr><td><strong>Circuito abierto</strong></td><td>El camino está interrumpido. No hay corriente.</td><td>El interruptor está apagado.</td></tr>
+        <tr><td><strong>Cortocircuito</strong></td><td>La corriente encuentra un camino de resistencia casi cero y fluye en exceso. Muy peligroso.</td><td>Un cable pelado toca otro directamente.</td></tr>
+      </tbody>
+    </table>
+    <div class="box box-warn">
+      <div class="label">⚠️ Importante</div>
+      Los cortocircuitos son la principal causa de incendios eléctricos en los hogares. Los fusibles y disyuntores cortan automáticamente la corriente cuando detectan un exceso.
+    </div>
+  </div>
+</details>
+
+<!-- ─── S6 ─── -->
+<details id="s6">
+  <summary>
+    <span class="snum">6</span>
+    📊 Magnitudes eléctricas. Ley de Ohm
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <table class="tbl">
+      <thead><tr><th>Magnitud</th><th>Símbolo</th><th>Unidad</th><th>¿Qué mide?</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Tensión / Voltaje</strong></td><td>V</td><td>Voltio (V)</td><td>La "fuerza" que empuja a los electrones</td></tr>
+        <tr><td><strong>Intensidad</strong></td><td>I</td><td>Amperio (A)</td><td>La cantidad de carga que pasa por segundo</td></tr>
+        <tr><td><strong>Resistencia</strong></td><td>R</td><td>Ohmio (Ω)</td><td>La oposición al paso de la corriente</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box box-formula">
+      <strong>La ley de Ohm:</strong>
+      <span class="formula">V = I × R</span>
+      <div style="display:flex;justify-content:center;gap:32px;margin-top:8px;font-size:.88rem">
+        <span>⟹ <strong>I = V / R</strong></span>
+        <span>⟹ <strong>R = V / I</strong></span>
+      </div>
+    </div>
+
+    <h3>Ejemplos resueltos</h3>
+    <p><strong>Ejemplo 1:</strong> Resistencia de 10 Ω conectada a 5 V. ¿Cuánta intensidad circula?<br>
+    I = V / R = 5 / 10 = <strong>0,5 A</strong></p>
+    <p><strong>Ejemplo 2:</strong> Por una bombilla circulan 0,2 A y tiene 60 Ω. ¿Qué voltaje necesita?<br>
+    V = I × R = 0,2 × 60 = <strong>12 V</strong></p>
+
+    <div class="box box-activity">
+      <div class="label">🎯 Practica tú</div>
+      <ol style="padding-left:18px;margin:0">
+        <li>Resistencia de 25 Ω conectada a 100 V. ¿Qué intensidad circula?</li>
+        <li>Por un cable circulan 3 A y su resistencia es 2 Ω. ¿Cuál es la caída de tensión?</li>
+        <li>Una bombilla funciona a 230 V y consume 0,5 A. ¿Cuál es su resistencia?</li>
+      </ol>
+    </div>
+  </div>
+</details>
+
+<!-- ─── S7 ─── -->
+<details id="s7">
+  <summary>
+    <span class="snum">7</span>
+    🔀 Tipos de circuitos: serie, paralelo y mixto
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <h3>Circuito en serie</h3>
+    <p>Los componentes están conectados <strong>uno detrás de otro</strong> en un único camino.</p>
+    <ul>
+      <li>La intensidad es la misma en todos: <strong>I<sub>total</sub> = I<sub>1</sub> = I<sub>2</sub></strong></li>
+      <li>Las tensiones se suman: <strong>V<sub>total</sub> = V<sub>1</sub> + V<sub>2</sub></strong></li>
+      <li>Las resistencias se suman: <strong>R<sub>total</sub> = R<sub>1</sub> + R<sub>2</sub></strong></li>
+      <li>⚠️ Si falla un componente, se interrumpe todo el circuito.</li>
+    </ul>
+
+    <h3>Circuito en paralelo</h3>
+    <p>Los componentes están en <strong>ramas independientes</strong>. La corriente se reparte.</p>
+    <ul>
+      <li>La tensión es la misma en todas las ramas: <strong>V<sub>total</sub> = V<sub>1</sub> = V<sub>2</sub></strong></li>
+      <li>Las intensidades se suman: <strong>I<sub>total</sub> = I<sub>1</sub> + I<sub>2</sub></strong></li>
+      <li>✅ Si falla un componente, los demás siguen funcionando. (Como tu casa)</li>
+    </ul>
+
+    <h3>Circuito mixto</h3>
+    <p>Combina partes en serie y partes en paralelo. Se resuelve por etapas.</p>
+
+    <div class="box box-tip">
+      <div class="label">💡 Pista</div>
+      Las luces de Navidad antiguas eran en <strong>serie</strong> (si se fundía una, se apagaban todas). Las modernas son en <strong>paralelo</strong>. ¿Por qué crees que las cambiaron?
+    </div>
+  </div>
+</details>
+
+<!-- ─── S8 ─── -->
+<details id="s8">
+  <summary>
+    <span class="snum">8</span>
+    🧮 Resolución de circuitos
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <h3>Circuito en serie — Ejemplo</h3>
+    <p>Tres resistencias de <strong>4 Ω, 6 Ω y 10 Ω</strong> en serie, conectadas a <strong>20 V</strong>.</p>
+    <div class="box box-formula">
+      <span class="formula" style="font-size:1rem">R<sub>total</sub> = 4 + 6 + 10 = <strong>20 Ω</strong></span>
+      <span class="formula" style="font-size:1rem">I = V / R = 20 / 20 = <strong>1 A</strong> (igual en todos)</span>
+      <span class="formula" style="font-size:.9rem">V₁ = 4 V &nbsp;|&nbsp; V₂ = 6 V &nbsp;|&nbsp; V₃ = 10 V &nbsp;→&nbsp; 4+6+10 = 20 V ✓</span>
+    </div>
+
+    <h3>Circuito en paralelo — Ejemplo</h3>
+    <p>Dos resistencias de <strong>6 Ω y 12 Ω</strong> en paralelo, conectadas a <strong>12 V</strong>.</p>
+    <div class="box box-formula">
+      <span class="formula" style="font-size:1rem">1/R<sub>total</sub> = 1/6 + 1/12 = 3/12 &nbsp;→&nbsp; R<sub>total</sub> = <strong>4 Ω</strong></span>
+      <span class="formula" style="font-size:1rem">I<sub>total</sub> = 12 / 4 = <strong>3 A</strong></span>
+      <span class="formula" style="font-size:.9rem">I₁ = 12/6 = 2 A &nbsp;|&nbsp; I₂ = 12/12 = 1 A &nbsp;→&nbsp; 2+1 = 3 A ✓</span>
+    </div>
+
+    <div class="box box-activity">
+      <div class="label">🎯 Resuelve tú</div>
+      <ol style="padding-left:18px;margin:0">
+        <li>Tres resistencias de 10 Ω, 20 Ω y 30 Ω en serie a 120 V. Calcula R<sub>total</sub>, I y la tensión en cada una.</li>
+        <li>Dos resistencias de 8 Ω y 8 Ω en paralelo a 16 V. Calcula R<sub>total</sub> e I<sub>total</sub>.</li>
+      </ol>
+    </div>
+  </div>
+</details>
+
+<!-- ─── S9 ─── -->
+<details id="s9">
+  <summary>
+    <span class="snum">9</span>
+    💡 Conversión de la energía eléctrica
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <p>Los receptores transforman la energía eléctrica en otras formas de energía útil:</p>
+    <table class="tbl">
+      <thead><tr><th>Energía obtenida</th><th>Dispositivos</th><th>¿Cómo funciona?</th></tr></thead>
+      <tbody>
+        <tr><td>💡 <strong>Luz</strong></td><td>Bombilla, LED, pantalla</td><td>La corriente excita átomos que emiten fotones de luz</td></tr>
+        <tr><td>🔥 <strong>Calor</strong></td><td>Calefactor, tostadora, plancha</td><td>La resistencia se calienta al paso de la corriente (efecto Joule)</td></tr>
+        <tr><td>⚙️ <strong>Movimiento</strong></td><td>Motor eléctrico, ventilador, lavadora</td><td>El campo magnético generado hace girar un rotor</td></tr>
+        <tr><td>🔊 <strong>Sonido</strong></td><td>Altavoz, timbre, zumbador</td><td>La corriente variable hace vibrar una membrana</td></tr>
+      </tbody>
+    </table>
+    <div class="box box-activity">
+      <div class="label">🎯 Actividad</div>
+      Busca en tu casa 6 aparatos eléctricos e indica qué tipo(s) de conversión realizan. ¿Puede haber más de una conversión a la vez? Pon un ejemplo y explícalo.
+    </div>
+  </div>
+</details>
+
+<!-- ─── S10 ─── -->
+<details id="s10">
+  <summary>
+    <span class="snum">10</span>
+    🌍 Energía y medio ambiente
+    <span class="sarrow">▶</span>
+  </summary>
+  <div class="sbody">
+    <h3>Impacto ambiental de la producción de energía</h3>
+    <p>La mayor parte de la electricidad del mundo aún se produce quemando combustibles fósiles (carbón, gas, petróleo), lo que libera CO₂ y contribuye al cambio climático.</p>
+    <table class="tbl">
+      <thead><tr><th>Fuente</th><th>Tipo</th><th>Ventajas</th><th>Inconvenientes</th></tr></thead>
+      <tbody>
+        <tr><td>☀️ Solar</td><td>Renovable</td><td>Inagotable, no contamina</td><td>Depende del sol, paneles caros</td></tr>
+        <tr><td>💨 Eólica</td><td>Renovable</td><td>Inagotable, eficiente</td><td>Depende del viento, impacto visual</td></tr>
+        <tr><td>💧 Hidráulica</td><td>Renovable</td><td>Muy eficiente, regulable</td><td>Altera ecosistemas fluviales</td></tr>
+        <tr><td>🔥 Carbón / Gas</td><td>No renovable</td><td>Barata a corto plazo</td><td>Gran emisión de CO₂</td></tr>
+        <tr><td>☢️ Nuclear</td><td>No renovable</td><td>No emite CO₂, potente</td><td>Residuos radiactivos peligrosos</td></tr>
+      </tbody>
+    </table>
+    <h3>¿Cómo puedes ahorrar energía?</h3>
+    <ul>
+      <li>Apaga las luces al salir de una habitación.</li>
+      <li>Usa bombillas LED (gastan hasta un 80 % menos que las incandescentes).</li>
+      <li>Desenchufa cargadores y aparatos en standby.</li>
+      <li>Usa electrodomésticos con etiqueta energética A o superior.</li>
+      <li>Aprovecha la luz natural siempre que puedas.</li>
+    </ul>
+    <div class="box box-fact">
+      <div class="label">🧠 Dato</div>
+      Un aparato en standby puede consumir hasta 10 W de forma continua. Si tienes 10 aparatos en standby 24 h, consumes más de 25 kWh al mes ¡sin usar nada!
+    </div>
+  </div>
+</details>
+
+<!-- ─── AUTOEVALUACIÓN ─── -->
+<div style="background:#fff;border-radius:18px;padding:32px 28px;border:2px solid #e8ecf4;margin-top:24px" id="auto">
+  <h2 style="margin-bottom:6px;font-size:1.4rem">✏️ Autoevaluación</h2>
+  <p style="color:#666;font-size:.88rem;margin-bottom:22px">Responde en tu cuaderno antes de revisar la teoría de nuevo.</p>
+  <ol class="quiz">
+    <li>¿Qué es la corriente eléctrica? ¿Y la energía eléctrica?</li>
+    <li>Pon dos ejemplos de materiales conductores y dos de aislantes.</li>
+    <li>¿Cuáles son los cuatro tipos de elementos básicos de un circuito?</li>
+    <li>¿Qué diferencia hay entre un circuito abierto y un cortocircuito?</li>
+    <li>Enuncia la ley de Ohm y escribe su fórmula.</li>
+    <li>Una resistencia de 15 Ω se conecta a 45 V. ¿Qué intensidad circula?</li>
+    <li>¿Cuál es la principal diferencia entre un circuito en serie y uno en paralelo?</li>
+    <li>¿Por qué la instalación eléctrica de las casas tiene los enchufes en paralelo?</li>
+    <li>Cita cuatro formas en que los receptores pueden transformar la energía eléctrica.</li>
+    <li>Nombra dos fuentes de energía renovable y explica brevemente cómo generan electricidad.</li>
+  </ol>
+</div>
+
+</main>
+
+<footer style="text-align:center;padding:28px 20px;color:#aaa;font-size:.82rem;border-top:1px solid #e8ecf4">
+  <a href="index.html" style="color:var(--a);text-decoration:none;font-weight:600">← Volver al portal</a> &nbsp;·&nbsp; Tecnología y Digitalización · 2.º ESO
+</footer>
+
+</body>
+</html>
