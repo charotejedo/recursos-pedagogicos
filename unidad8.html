@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unidad 8 · Digitalización del Entorno de Aprendizaje</title>
+<meta name="description" content="Recurso educativo sobre digitalización para 2.º ESO: hardware, software, internet, seguridad digital y apps.">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.title" content="Unidad 8: Digitalización del Entorno de Aprendizaje · Tecnología 2.º ESO">
+<meta name="DC.creator" content="Charo Tejedo">
+<meta name="DC.subject" content="Digitalización, Hardware, Software, Seguridad Digital, Internet, Tecnología, ESO">
+<meta name="DC.description" content="Recurso educativo abierto sobre digitalización del entorno de aprendizaje para 2.º ESO.">
+<meta name="DC.type" content="InteractiveResource">
+<meta name="DC.language" content="es">
+<meta name="DC.rights" content="https://creativecommons.org/licenses/by/4.0/">
+<meta name="DC.format" content="text/html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Unidad 8: Digitalización del Entorno de Aprendizaje","description":"Recurso educativo abierto sobre digitalización del entorno de aprendizaje para 2.º ESO.","provider":{"@type":"Person","name":"Charo Tejedo"},"inLanguage":"es","license":"https://creativecommons.org/licenses/by/4.0/","url":"https://charotejedo.github.io/recursos-pedagogicos/unidad8.html","educationalLevel":"Educación Secundaria Obligatoria","learningResourceType":"InteractiveResource","audience":{"@type":"EducationalAudience","educationalRole":"student"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -89,21 +100,41 @@ li{margin-bottom:7px;line-height:1.6;font-size:.93rem}
 /* Code inline */
 code{background:#f0f4ff;color:var(--a);padding:2px 7px;border-radius:5px;font-size:.85rem;font-family:monospace}
 
-/* Self-assessment */
-.quiz{counter-reset:q}
-.quiz li{counter-increment:q;position:relative;list-style:none;
-  background:#fff;border:1.5px solid #e8ecf4;border-radius:12px;
-  padding:14px 18px 14px 52px;margin-bottom:10px;font-size:.9rem}
-.quiz li::before{content:counter(q);position:absolute;left:14px;top:12px;
-  background:var(--a);color:#fff;width:26px;height:26px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem}
+/* ─── Accesibilidad ─── */
+.skip-link{position:absolute;top:-100px;left:12px;background:var(--dark);color:#fff;padding:8px 16px;border-radius:0 0 8px 8px;font-weight:700;font-size:.88rem;z-index:9999;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:0}
+:focus-visible{outline:3px solid var(--a);outline-offset:3px;border-radius:3px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* ─── Quiz interactivo ─── */
+.qitem{background:#fff;border:1.5px solid #e8ecf4;border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.qtext{font-weight:600;font-size:.95rem;margin-bottom:14px;display:flex;gap:12px;align-items:flex-start;line-height:1.5;margin-top:0}
+.qnum{background:var(--a);color:#fff;min-width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0}
+.qopts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:540px){.qopts{grid-template-columns:1fr}}
+.qopt{background:#f8f9fc;border:1.5px solid #e2e6f0;border-radius:8px;padding:10px 14px;font-size:.88rem;cursor:pointer;text-align:left;transition:background .15s,border-color .15s;font-family:'Poppins',sans-serif;line-height:1.4}
+.qopt:hover:not(:disabled){background:var(--al);border-color:var(--a)}
+.qopt.correct{background:#f0fff4;border-color:#22c55e;color:#166534;font-weight:600}
+.qopt.wrong{background:#fff2f2;border-color:#ef4444;color:#991b1b}
+.qopt:disabled{cursor:default}
+.qfeed{font-size:.85rem;margin-top:10px;font-weight:600;min-height:1.2em;margin-bottom:0}
+.qfeed.ok{color:#16a34a}
+.qfeed.ko{color:#dc2626}
+.quiz-result{text-align:center;padding:18px 24px;border-radius:12px;margin-top:16px;font-size:1rem;font-weight:600}
+.quiz-result.perfect{background:#f0fff4;color:#166534;border:2px solid #22c55e}
+.quiz-result.good{background:#fffbeb;color:#92400e;border:2px solid #f59e0b}
+.quiz-result.review{background:#fff2f2;color:#991b1b;border:2px solid #ef4444}
 </style>
 </head>
 <body>
+<a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
 
-<nav>
+<nav role="navigation" aria-label="Navegación principal">
   <a href="index.html" class="back">← Inicio</a>
   <span class="nav-title">Unidad 8 · Digitalización del Entorno de Aprendizaje</span>
+  <span style="margin-left:auto;display:flex;gap:6px;align-items:center">
+    <button style="background:#fff;border:1.5px solid rgba(67,97,238,.4);color:#001022;border-radius:20px;padding:4px 10px;font-size:.75rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif" onclick="var s=parseFloat(getComputedStyle(document.documentElement).fontSize);document.documentElement.style.fontSize=Math.min(22,s+2)+'px'" aria-label="Aumentar tamaño del texto">A+</button>
+    <button style="background:#fff;border:1.5px solid rgba(67,97,238,.4);color:#001022;border-radius:20px;padding:4px 10px;font-size:.75rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif" onclick="var s=parseFloat(getComputedStyle(document.documentElement).fontSize);document.documentElement.style.fontSize=Math.max(12,s-2)+'px'" aria-label="Reducir tamaño del texto">A−</button>
+  </span>
 </nav>
 
 <div class="hero">
@@ -124,7 +155,7 @@ code{background:#f0f4ff;color:var(--a);padding:2px 7px;border-radius:5px;font-si
   <a href="#auto">✏️ Autoevaluación</a>
 </div>
 
-<main>
+<main id="contenido-principal">
 
 <!-- ─── S1 ─── -->
 <details open id="s1">
@@ -455,21 +486,51 @@ code{background:#f0f4ff;color:var(--a);padding:2px 7px;border-radius:5px;font-si
 
 <!-- ─── AUTOEVALUACIÓN ─── -->
 <div style="background:#fff;border-radius:18px;padding:32px 28px;border:2px solid #e8ecf4;margin-top:24px" id="auto">
-  <h2 style="margin-bottom:6px;font-size:1.4rem">✏️ Autoevaluación</h2>
-  <p style="color:#666;font-size:.88rem;margin-bottom:22px">Responde en tu cuaderno antes de revisar la teoría de nuevo.</p>
-  <ol class="quiz">
-    <li>¿Cuál es la diferencia entre hardware y software? Pon un ejemplo de cada uno.</li>
-    <li>¿Qué función tiene la CPU? ¿Y la RAM? ¿En qué se diferencian?</li>
-    <li>¿Para qué sirve una copia de seguridad? Explica la regla 3-2-1.</li>
-    <li>¿Cuál es la diferencia entre Internet y la World Wide Web (WWW)?</li>
-    <li>Nombra tres formatos de archivo de imagen y dos de audio.</li>
-    <li>¿Cómo puedes reconocer un intento de phishing? Cita tres señales de alerta.</li>
-    <li>¿Qué es la huella digital? ¿Por qué es importante gestionarla bien?</li>
-    <li>¿Qué es la autenticación en dos pasos (2FA) y por qué es más segura?</li>
-    <li>¿Cuál es la diferencia entre Android e iOS? ¿Cuál tiene mayor cuota de mercado?</li>
-    <li>¿Por qué debes revisar los permisos que pide una app antes de instalarla? Pon un ejemplo de permiso sospechoso.</li>
-  </ol>
+  <h2 style="margin-bottom:6px;font-size:1.4rem">✏️ Autoevaluación interactiva</h2>
+  <p style="color:#666;font-size:.88rem;margin-bottom:22px">Haz clic en la respuesta que creas correcta. ¡Recibirás corrección inmediata!</p>
+  <div id="qbox" role="list" aria-label="Preguntas de autoevaluación"></div>
+  <div id="qres" class="quiz-result" role="alert" aria-live="polite" style="display:none"></div>
 </div>
+<script>
+(function(){
+  var QUIZ=[
+    {q:"¿Qué componente es el 'cerebro' del ordenador y ejecuta los programas?",opts:["RAM","GPU","CPU","SSD"],ans:2},
+    {q:"¿Qué indica la 'S' en HTTPS?",opts:["Es más rápido","La conexión es cifrada y segura","Es de pago","El servidor es español"],ans:1},
+    {q:"¿Cuántos caracteres mínimo debe tener una contraseña segura?",opts:["4","6","8","12"],ans:3},
+    {q:"¿Cuál es el sistema operativo para móviles de Apple?",opts:["Android","Windows Mobile","iOS","Linux"],ans:2},
+    {q:"¿Qué es el phishing?",opts:["Un tipo de virus","Engaño para robar datos mediante páginas o mensajes falsos","Un formato de archivo","Un tipo de red WiFi"],ans:1}
+  ];
+  var c=document.getElementById('qbox'),score=0,answered=0;
+  QUIZ.forEach(function(item,i){
+    var d=document.createElement('div');d.className='qitem';d.setAttribute('role','listitem');
+    d.innerHTML='<p class="qtext"><span class="qnum" aria-hidden="true">'+(i+1)+'</span>'+item.q+'</p><div class="qopts" role="group" aria-label="Opciones">'+item.opts.map(function(o,j){return'<button class="qopt" data-q="'+i+'" data-o="'+j+'">'+o+'</button>';}).join('')+'</div><p class="qfeed" id="f'+i+'" aria-live="polite"></p>';
+    c.appendChild(d);
+  });
+  var res=document.getElementById('qres');
+  c.addEventListener('click',function(e){
+    var btn=e.target.closest('.qopt');if(!btn)return;
+    var q=+btn.dataset.q,o=+btn.dataset.o;
+    var btns=c.querySelectorAll('[data-q="'+q+'"]');
+    if(btns[0].disabled)return;
+    btns.forEach(function(b){b.disabled=true;});
+    var ok=o===QUIZ[q].ans;
+    btn.classList.add(ok?'correct':'wrong');
+    btns[QUIZ[q].ans].classList.add('correct');
+    var f=document.getElementById('f'+q);
+    f.textContent=ok?'✓ ¡Correcto!':'✗ Correcta: "'+QUIZ[q].opts[QUIZ[q].ans]+'"';
+    f.className='qfeed '+(ok?'ok':'ko');
+    if(ok)score++;
+    answered++;
+    if(answered===QUIZ.length){
+      res.style.display='block';
+      var p=score===QUIZ.length?'perfect':score>=3?'good':'review';
+      var msg=score===QUIZ.length?'¡Perfecto! Todo correcto.':score>=3?'Bien. Repasa los errores.':'Repasa la teoría e inténtalo de nuevo.';
+      res.textContent='Resultado: '+score+'/'+QUIZ.length+' — '+msg;
+      res.className='quiz-result '+p;
+    }
+  });
+})();
+</script>
 
 </main>
 
@@ -480,6 +541,11 @@ code{background:#f0f4ff;color:var(--a);padding:2px 7px;border-radius:5px;font-si
       <img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
     </a>
     <p style="margin-top:6px">Este material está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="color:#888">Licencia Creative Commons Atribución 4.0 Internacional</a>.</p>
+  </div>
+  <div style="margin-top:14px">
+    <span style="display:inline-block;background:#f0f4ff;border:1px solid rgba(67,97,238,.3);border-radius:8px;padding:8px 16px;font-size:.78rem;color:#4361ee;font-weight:600">
+      📚 Recurso Educativo Abierto (REA) · <a href="https://charotejedo.github.io/recursos-pedagogicos/" style="color:#4361ee">GitHub Pages</a>
+    </span>
   </div>
 </footer>
 

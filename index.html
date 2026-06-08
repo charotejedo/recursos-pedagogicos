@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tecnología y Digitalización · 2.º ESO</title>
+<meta name="description" content="Portal de recursos educativos abiertos de Tecnología y Digitalización para 2.º ESO. Unidades de electricidad básica y digitalización.">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.title" content="Portal de Recursos · Tecnología y Digitalización 2.º ESO">
+<meta name="DC.creator" content="Charo Tejedo">
+<meta name="DC.subject" content="Tecnología, Digitalización, Educación Secundaria, ESO">
+<meta name="DC.description" content="Portal de recursos educativos abiertos de Tecnología y Digitalización para 2.º ESO.">
+<meta name="DC.type" content="InteractiveResource">
+<meta name="DC.language" content="es">
+<meta name="DC.rights" content="https://creativecommons.org/licenses/by/4.0/">
+<meta name="DC.format" content="text/html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Tecnología y Digitalización 2.º ESO","description":"Portal de recursos educativos abiertos de Tecnología y Digitalización para 2.º ESO.","provider":{"@type":"Person","name":"Charo Tejedo"},"inLanguage":"es","license":"https://creativecommons.org/licenses/by/4.0/","url":"https://charotejedo.github.io/recursos-pedagogicos/","educationalLevel":"Educación Secundaria Obligatoria","audience":{"@type":"EducationalAudience","educationalRole":"student"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -80,9 +91,18 @@ h1{font-size:clamp(2.2rem,7vw,4.8rem);font-weight:800;line-height:1.06;margin-bo
 /* ─── Footer ─── */
 footer{text-align:center;padding:28px 20px;
   color:rgba(255,255,255,.28);font-size:.82rem;border-top:1px solid rgba(255,255,255,.06)}
+/* ─── Accesibilidad ─── */
+.skip-link{position:absolute;top:-100px;left:12px;background:#fff;color:#000;padding:8px 16px;border-radius:0 0 8px 8px;font-weight:700;font-size:.88rem;z-index:9999;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:0}
+:focus-visible{outline:3px solid #ffd200;outline-offset:3px;border-radius:3px}
+@media(prefers-reduced-motion:reduce){.pt,.icon{animation:none!important}.card{transition:none!important}}
+.a11y-bar{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:8px;z-index:999}
+.a11y-btn{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);color:#fff;width:44px;height:44px;border-radius:50%;font-size:.85rem;font-weight:700;cursor:pointer;backdrop-filter:blur(8px);transition:background .2s;font-family:'Poppins',sans-serif}
+.a11y-btn:hover{background:rgba(255,255,255,.35)}
 </style>
 </head>
 <body>
+<a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
 <div class="bg"></div>
 <div class="pts">
   <div class="pt" style="width:5px;height:5px;left:7%;background:#ff6b35;animation-duration:19s;animation-delay:0s"></div>
@@ -94,13 +114,13 @@ footer{text-align:center;padding:28px 20px;
   <div class="pt" style="width:5px;height:5px;left:93%;background:#4361ee;animation-duration:27s;animation-delay:1s"></div>
 </div>
 
-<header>
+<header role="banner">
   <div class="pill">📚 Tecnología y Digitalización</div>
   <h1>Portal de Recursos<br><span class="grd">2.º ESO</span></h1>
   <p class="sub">Elige tu unidad didáctica. Teoría clara, actividades prácticas y autoevaluación para aprender a tu ritmo.</p>
 </header>
 
-<div class="grid">
+<div class="grid" id="contenido-principal" role="main">
 
   <a href="unidad7.html" class="card card-u7">
     <span class="icon">⚡</span>
@@ -142,6 +162,15 @@ footer{text-align:center;padding:28px 20px;
     </a>
     <p style="margin-top:6px;font-size:.75rem">Este material está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="color:inherit">Licencia Creative Commons Atribución 4.0 Internacional</a>.</p>
   </div>
+  <div style="margin-top:14px">
+    <span style="display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:8px 16px;font-size:.78rem;color:rgba(255,255,255,.7)">
+      📚 Recurso Educativo Abierto (REA) · Publicado en <a href="https://charotejedo.github.io/recursos-pedagogicos/" style="color:rgba(255,255,255,.9)">GitHub Pages</a>
+    </span>
+  </div>
 </footer>
+<div role="toolbar" aria-label="Controles de accesibilidad" class="a11y-bar">
+  <button class="a11y-btn" onclick="var s=parseFloat(getComputedStyle(document.documentElement).fontSize);document.documentElement.style.fontSize=Math.min(22,s+2)+'px'" aria-label="Aumentar tamaño del texto" title="Aumentar texto">A+</button>
+  <button class="a11y-btn" onclick="var s=parseFloat(getComputedStyle(document.documentElement).fontSize);document.documentElement.style.fontSize=Math.max(12,s-2)+'px'" aria-label="Reducir tamaño del texto" title="Reducir texto">A−</button>
+</div>
 </body>
 </html>
