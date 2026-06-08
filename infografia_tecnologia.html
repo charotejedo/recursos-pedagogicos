@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infografía · Tecnología y Método de Proyectos · 2.º ESO</title>
+<meta name="description" content="Infografía sobre la tecnología como respuesta a las necesidades humanas y el método de proyectos. 2.º ESO.">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.title" content="Infografía: Tecnología y Método de Proyectos · 2.º ESO">
+<meta name="DC.creator" content="Charo Tejedo">
+<meta name="DC.subject" content="Tecnología, Método de Proyectos, Necesidades Humanas, ESO">
+<meta name="DC.type" content="InteractiveResource">
+<meta name="DC.language" content="es">
+<meta name="DC.rights" content="https://creativecommons.org/licenses/by/4.0/">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#00b4d8;--teal2:#0077b6;
+  --orange:#ff6b35;--orange2:#e85d04;
+  --green:#2dc653;--green2:#1a9e40;
+  --purple:#7b2d8b;--yellow:#ffd60a;
+  --dark:#0d1b2a;--light:#f4f7fb;
+}
+body{font-family:'Poppins',sans-serif;background:#f0f4f8;color:var(--dark)}
+
+/* ─── HEADER ─── */
+.infografia-header{background:linear-gradient(135deg,var(--teal2) 0%,var(--teal) 50%,#48cae4 100%);
+  padding:36px 24px 28px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.infografia-header::before{content:'⚙️';position:absolute;font-size:8rem;opacity:.08;top:-20px;left:-20px}
+.infografia-header::after{content:'🔧';position:absolute;font-size:8rem;opacity:.08;bottom:-20px;right:-20px}
+.badge-top{display:inline-block;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);
+  border-radius:100px;padding:5px 18px;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.infografia-header h1{font-size:clamp(1.6rem,5vw,2.8rem);font-weight:900;line-height:1.1;margin-bottom:8px}
+.infografia-header p{font-size:.95rem;opacity:.85}
+
+/* ─── LAYOUT ─── */
+.container{max-width:960px;margin:0 auto;padding:28px 18px 60px}
+
+/* ─── SECTION TITLE ─── */
+.sec-title{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.sec-num{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;font-weight:900;color:#fff;flex-shrink:0}
+.sec-num-1{background:linear-gradient(135deg,var(--orange),var(--orange2))}
+.sec-num-2{background:linear-gradient(135deg,var(--teal),var(--teal2))}
+.sec-title h2{font-size:clamp(1.1rem,3vw,1.55rem);font-weight:800;line-height:1.2}
+
+/* ─── DEFINICIÓN ─── */
+.def-box{background:#fff;border-radius:18px;padding:22px 26px;margin-bottom:24px;
+  border-left:6px solid var(--orange);box-shadow:0 4px 20px rgba(255,107,53,.1)}
+.def-box .label{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--orange);margin-bottom:6px}
+.def-box p{font-size:.97rem;line-height:1.65;color:#333}
+.def-box strong{color:var(--orange2)}
+
+/* ─── NECESIDADES GRID ─── */
+.needs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:24px}
+.need-card{background:#fff;border-radius:14px;padding:16px 10px;text-align:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.07);border:2px solid transparent;transition:transform .2s,border-color .2s}
+.need-card:hover{transform:translateY(-4px);border-color:var(--orange)}
+.need-icon{font-size:2rem;margin-bottom:8px;display:block}
+.need-name{font-size:.78rem;font-weight:700;color:#333;margin-bottom:4px}
+.need-example{font-size:.68rem;color:#888;line-height:1.4}
+
+/* ─── FORMULA ─── */
+.formula-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:8px;background:#fff;border-radius:16px;padding:18px 22px;margin-bottom:32px;
+  box-shadow:0 4px 18px rgba(0,0,0,.07)}
+.f-item{display:flex;align-items:center;gap:8px;background:var(--light);
+  border-radius:10px;padding:10px 16px}
+.f-item span:first-child{font-size:1.4rem}
+.f-item strong{font-size:.88rem;font-weight:700;color:#333}
+.f-plus{font-size:1.4rem;font-weight:900;color:var(--orange)}
+.f-eq{font-size:1.4rem;font-weight:900;color:var(--teal2)}
+.f-result{background:linear-gradient(135deg,var(--teal),var(--teal2));border-radius:10px;
+  padding:12px 20px;display:flex;align-items:center;gap:8px}
+.f-result span:first-child{font-size:1.4rem}
+.f-result strong{font-size:.95rem;font-weight:800;color:#fff;letter-spacing:1px}
+
+/* ─── MÉTODO ─── */
+.metodo-intro{background:#fff;border-radius:18px;padding:22px 26px;margin-bottom:28px;
+  border-left:6px solid var(--teal);box-shadow:0 4px 20px rgba(0,119,182,.1)}
+.metodo-intro .label{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--teal2);margin-bottom:6px}
+.metodo-intro p{font-size:.95rem;line-height:1.6;color:#333}
+.metodo-intro strong{color:var(--teal2)}
+
+.phases-container{position:relative}
+.phase{display:grid;grid-template-columns:60px 1fr;gap:0;margin-bottom:0;align-items:stretch}
+.phase-left{display:flex;flex-direction:column;align-items:center}
+.phase-circle{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;flex-shrink:0;z-index:2;position:relative}
+.phase-line{flex:1;width:3px;background:linear-gradient(to bottom,var(--teal),var(--teal2));
+  margin:4px 0;min-height:20px}
+.phase:last-child .phase-line{display:none}
+.phase-content{background:#fff;border-radius:14px;padding:14px 18px;margin:0 0 12px 12px;
+  box-shadow:0 2px 12px rgba(0,0,0,.07);border:1.5px solid #e8f0fa;
+  transition:border-color .2s,box-shadow .2s}
+.phase-content:hover{border-color:var(--teal);box-shadow:0 4px 20px rgba(0,180,216,.12)}
+.phase-header{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.phase-num{background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;
+  width:24px;height:24px;border-radius:50%;font-size:.72rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.phase-name{font-weight:700;font-size:.92rem;color:var(--dark)}
+.phase-desc{font-size:.82rem;color:#555;line-height:1.55}
+
+/* color coding phases */
+.phase:nth-child(1) .phase-circle{background:#fff3e0;border:3px solid #ff9800}
+.phase:nth-child(2) .phase-circle{background:#e3f2fd;border:3px solid #2196f3}
+.phase:nth-child(3) .phase-circle{background:#f3e5f5;border:3px solid #9c27b0}
+.phase:nth-child(4) .phase-circle{background:#e8f5e9;border:3px solid #4caf50}
+.phase:nth-child(5) .phase-circle{background:#fff8e1;border:3px solid #ffc107}
+.phase:nth-child(6) .phase-circle{background:#fce4ec;border:3px solid #e91e63}
+.phase:nth-child(7) .phase-circle{background:#e0f7fa;border:3px solid #00bcd4}
+.phase:nth-child(8) .phase-circle{background:#f9fbe7;border:3px solid #8bc34a}
+.phase:nth-child(9) .phase-circle{background:#ede7f6;border:3px solid #673ab7}
+.phase:nth-child(10) .phase-circle{background:#fff3e0;border:3px solid #ff5722}
+
+/* ─── NOTA FINAL ─── */
+.nota{background:linear-gradient(135deg,#fff8e1,#fffde7);border-radius:14px;
+  padding:16px 20px;margin-top:28px;border-left:5px solid var(--yellow);
+  display:flex;gap:14px;align-items:flex-start}
+.nota-icon{font-size:1.5rem;flex-shrink:0}
+.nota p{font-size:.85rem;line-height:1.6;color:#555}
+.nota strong{color:#b45309}
+
+/* ─── FOOTER ─── */
+.infografia-footer{text-align:center;padding:20px;color:#999;font-size:.75rem;
+  border-top:1px solid #e0e8f0;margin-top:16px}
+.infografia-footer a{color:var(--teal2);text-decoration:none}
+
+/* ─── NAV ─── */
+nav{position:sticky;top:0;z-index:100;background:rgba(0,70,130,.97);
+  backdrop-filter:blur(12px);padding:11px 22px;display:flex;align-items:center;gap:14px}
+nav a.back{display:inline-flex;align-items:center;gap:8px;color:#fff;
+  text-decoration:none;font-size:.85rem;font-weight:600;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  padding:5px 14px;border-radius:100px;transition:background .2s}
+nav a.back:hover{background:rgba(255,255,255,.28)}
+nav .nav-title{color:rgba(255,255,255,.6);font-size:.82rem}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:500px){
+  .formula-row{flex-direction:column}
+  .needs-grid{grid-template-columns:repeat(2,1fr)}
+}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:3px}
+</style>
+</head>
+<body>
+
+<nav role="navigation" aria-label="Navegación">
+  <a href="index.html" class="back">← Inicio</a>
+  <span class="nav-title">Infografía · Tecnología y Método de Proyectos</span>
+</nav>
+
+<!-- HEADER -->
+<div class="infografia-header" role="banner">
+  <div class="badge-top">Tecnología y Digitalización · 2.º ESO</div>
+  <h1>⚙️ Tecnología y<br>Método de Proyectos</h1>
+  <p>Todo lo que necesitas saber en una sola página</p>
+</div>
+
+<div class="container">
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECCIÓN 1: LA TECNOLOGÍA -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="sec-title">
+    <div class="sec-num sec-num-1">1</div>
+    <h2>La tecnología como respuesta a las necesidades humanas</h2>
+  </div>
+
+  <!-- Definición -->
+  <div class="def-box" role="region" aria-label="Definición de tecnología">
+    <div class="label">📖 Definición</div>
+    <p>La <strong>tecnología</strong> es el conjunto de conocimientos y técnicas que se emplean para <strong>satisfacer las necesidades humanas</strong> y resolver los problemas que se nos presentan en nuestra vida diaria.</p>
+  </div>
+
+  <!-- Necesidades -->
+  <p style="font-size:.82rem;font-weight:700;color:#666;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px">🧠 Necesidades humanas y productos tecnológicos</p>
+  <div class="needs-grid" role="list" aria-label="Necesidades humanas">
+    <div class="need-card" role="listitem">
+      <span class="need-icon">🏠</span>
+      <div class="need-name">Refugio</div>
+      <div class="need-example">casas, pisos…</div>
+    </div>
+    <div class="need-card" role="listitem">
+      <span class="need-icon">🍎</span>
+      <div class="need-name">Alimentación</div>
+      <div class="need-example">nevera, microondas…</div>
+    </div>
+    <div class="need-card" role="listitem">
+      <span class="need-icon">👕</span>
+      <div class="need-name">Vestido</div>
+      <div class="need-example">pantalón, camisa…</div>
+    </div>
+    <div class="need-card" role="listitem">
+      <span class="need-icon">🚌</span>
+      <div class="need-name">Transporte</div>
+      <div class="need-example">autobús, avión…</div>
+    </div>
+    <div class="need-card" role="listitem">
+      <span class="need-icon">💬</span>
+      <div class="need-name">Comunicación</div>
+      <div class="need-example">teléfono, TV…</div>
+    </div>
+    <div class="need-card" role="listitem">
+      <span class="need-icon">🎮</span>
+      <div class="need-name">Ocio</div>
+      <div class="need-example">videojuegos, parques…</div>
+    </div>
+    <div class="need-card" role="listitem">
+      <span class="need-icon">💊</span>
+      <div class="need-name">Salud e higiene</div>
+      <div class="need-example">jeringuilla, jabón…</div>
+    </div>
+    <div class="need-card" role="listitem">
+      <span class="need-icon">💼</span>
+      <div class="need-name">Trabajo</div>
+      <div class="need-example">ordenador, herramientas…</div>
+    </div>
+  </div>
+
+  <!-- Fórmula saber tecnológico -->
+  <p style="font-size:.82rem;font-weight:700;color:#666;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px">🔬 ¿De dónde viene el saber tecnológico?</p>
+  <div class="formula-row" role="img" aria-label="Ciencia más técnica más sociedad igual a Tecnología">
+    <div class="f-item">
+      <span>🔭</span>
+      <strong>Ciencia</strong>
+    </div>
+    <span class="f-plus">+</span>
+    <div class="f-item">
+      <span>🔧</span>
+      <strong>Técnica</strong>
+    </div>
+    <span class="f-plus">+</span>
+    <div class="f-item">
+      <span>👥</span>
+      <strong>Sociedad</strong>
+    </div>
+    <span class="f-eq">=</span>
+    <div class="f-result">
+      <span>⚙️</span>
+      <strong>TECNOLOGÍA</strong>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECCIÓN 2: MÉTODO DE PROYECTOS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="sec-title">
+    <div class="sec-num sec-num-2">2</div>
+    <h2>El método de proyectos</h2>
+  </div>
+
+  <div class="metodo-intro" role="region" aria-label="Definición del método de proyectos">
+    <div class="label">📖 Definición</div>
+    <p>El <strong>método de proyectos</strong> es una forma ordenada de abordar y resolver problemas prácticos que se presentan en cualquier sociedad. Se desarrolla en <strong>10 fases</strong> que van desde detectar el problema hasta elaborar una memoria final.</p>
+  </div>
+
+  <!-- 10 fases -->
+  <div class="phases-container" role="list" aria-label="Fases del método de proyectos">
+
+    <div class="phase" role="listitem">
+      <div class="phase-left">
+        <div class="phase-circle">🔍</div>
+        <div class="phase-line"></div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-header">
+          <div class="phase-num">1</div>
+          <div class="phase-name">Detección del problema</div>
+        </div>
+        <p class="phase-desc">¿Con qué problema nos encontramos o qué necesidad tenemos? Hay que conocer bien el problema antes de empezar.</p>
+      </div>
+    </div>
+
+    <div class="phase" role="listitem">
+      <div class="phase-left">
+        <div class="phase-circle">📚</div>
+        <div class="phase-line"></div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-header">
+          <div class="phase-num">2</div>
+          <div class="phase-name">Búsqueda de información</div>
+        </div>
+        <p class="phase-desc">Se recopila y analiza información sobre el problema y productos similares que ya existen.</p>
+      </div>
+    </div>
+
+    <div class="phase" role="listitem">
+      <div class="phase-left">
+        <div class="phase-circle">💡</div>
+        <div class="phase-line"></div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-header">
+          <div class="phase-num">3</div>
+          <div class="phase-name">Búsqueda de soluciones posibles</div>
+        </div>
+        <p class="phase-desc">Se piensan distintas alternativas (objetos o productos) que podrían resolver el problema, y se evalúa si son viables.</p>
+      </div>
+    </div>
+
+    <div class="phase" role="listitem">
+      <div class="phase-left">
+        <div class="phase-circle">✅</div>
+        <div class="phase-line"></div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-header">
+          <div class="phase-num">4</div>
+          <div class="phase-name">Elección de la solución</div>
+        </div>
+        <p class="phase-desc">Se elige la solución más adecuada comparando criterios: material, tamaño, forma, coste… y ventajas e inconvenientes de cada opción.</p>
+      </div>
+    </div>
+
+    <div class="phase" role="listitem">
+      <div class="phase-left">
+        <div class="phase-circle">✏️</div>
+        <div class="phase-line"></div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-header">
+          <div class="phase-num">5</div>
+          <div class="phase-name">Diseño</div>
+        </div>
+        <p class="phase-desc">Se realizan bocetos, croquis y esquemas de la solución elegida, primero a mano alzada y luego con más detalle.</p>
+      </div>
+    </div>
+
+    <div class="phase" role="listitem">
+      <div class="phase-left">
+        <div class="phase-circle">📋</div>
+        <div class="phase-line"></div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-header">
+          <div class="phase-num">6</div>
+          <div class="phase-name">Planificación del trabajo</div>
+        </div>
+        <p class="phase-desc">Se eligen materiales, técnicas y herramientas. Se divide el trabajo en tareas y se reparte entre el equipo.</p>
+      </div>
+    </div>
+
+    <div class="phase" role="listitem">
+      <div class="phase-left">
+        <div class="phase-circle">🔨</div>
+        <div class="phase-line"></div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-header">
+          <div class="phase-num">7</div>
+          <div class="phase-name">Construcción del producto</div>
+        </div>
+        <p class="phase-desc">Se fabrica, monta y acaba el producto con los materiales y herramientas seleccionados. Se procura economizar.</p>
+      </div>
+    </div>
+
+    <div class="phase" role="listitem">
+      <div class="phase-left">
+        <div class="phase-circle">🔬</div>
+        <div class="phase-line"></div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-header">
+          <div class="phase-num">8</div>
+          <div class="phase-name">Comprobación del resultado</div>
+        </div>
+        <p class="phase-desc">¿Funciona? ¿Responde a su finalidad? Se evalúa el resultado y si hace falta se proponen mejoras.</p>
+      </div>
+    </div>
+
+    <div class="phase" role="listitem">
+      <div class="phase-left">
+        <div class="phase-circle">🎤</div>
+        <div class="phase-line"></div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-header">
+          <div class="phase-num">9</div>
+          <div class="phase-name">Presentación y evaluación</div>
+        </div>
+        <p class="phase-desc">Se expone el trabajo ante el grupo y se somete a la valoración de personas externas al equipo.</p>
+      </div>
+    </div>
+
+    <div class="phase" role="listitem">
+      <div class="phase-left">
+        <div class="phase-circle">📝</div>
+        <div class="phase-line"></div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-header">
+          <div class="phase-num">10</div>
+          <div class="phase-name">Elaboración de la memoria</div>
+        </div>
+        <p class="phase-desc">Se redacta un documento que recoge todo el proceso: problema, soluciones, diseño, construcción y resultados.</p>
+      </div>
+    </div>
+
+  </div><!-- /phases -->
+
+  <!-- Nota -->
+  <div class="nota" role="note">
+    <span class="nota-icon">💡</span>
+    <p><strong>¡Importante!</strong> Todas las fases están conectadas. En muchas ocasiones es necesario volver a una etapa anterior para repensar ideas, incluir nuevas soluciones o rediseñar algo. ¡El proceso no es rígido!</p>
+  </div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer class="infografia-footer" role="contentinfo">
+  <p>Tecnología y Digitalización · 2.º ESO · Aula de Charo Tejedo</p>
+  <p style="margin-top:6px">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+      <img alt="Licencia Creative Commons" style="border-width:0;vertical-align:middle;margin-right:6px" src="https://i.creativecommons.org/l/by/4.0/80x15.png">
+    </a>
+    Licencia Creative Commons Atribución 4.0 ·
+    <span style="background:#f0f4ff;border:1px solid #c7d2fe;border-radius:6px;padding:2px 8px;color:#4361ee;font-weight:600;font-size:.72rem">📚 REA · <a href="https://charotejedo.github.io/recursos-pedagogicos/" style="color:#4361ee">GitHub Pages</a></span>
+  </p>
+</footer>
+
+</body>
+</html>
