@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circuitos Eléctricos · 2.º ESO</title>
+<meta name="description" content="Infografía visual sobre circuitos eléctricos para 2.º ESO: componentes, tipos y ejemplos.">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.title" content="Circuitos Eléctricos · 2.º ESO">
+<meta name="DC.creator" content="Charo Tejedo Albín">
+<meta name="DC.subject" content="Circuitos eléctricos, Electricidad, Tecnología, ESO">
+<meta name="DC.type" content="InteractiveResource">
+<meta name="DC.language" content="es">
+<meta name="DC.rights" content="https://creativecommons.org/licenses/by-sa/4.0/">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Circuitos Eléctricos · 2.º ESO","description":"Infografía visual sobre circuitos eléctricos para 2.º ESO.","provider":{"@type":"Person","name":"Charo Tejedo Albín"},"inLanguage":"es","license":"https://creativecommons.org/licenses/by-sa/4.0/","educationalLevel":"Educación Secundaria Obligatoria","isBasedOn":"https://es.wikipedia.org/wiki/Circuito_el%C3%A9ctrico"}</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;background:#f0f4f8;color:#0d1b2a}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(26,13,0,.97);
+  backdrop-filter:blur(12px);padding:11px 22px;display:flex;align-items:center;gap:14px}
+nav a.back{display:inline-flex;align-items:center;gap:8px;color:#fff;
+  text-decoration:none;font-size:.85rem;font-weight:600;
+  background:rgba(255,107,53,.25);border:1px solid rgba(255,107,53,.4);
+  padding:5px 14px;border-radius:100px;transition:background .2s}
+nav a.back:hover{background:rgba(255,107,53,.4)}
+nav .nav-title{color:rgba(255,255,255,.6);font-size:.82rem}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,#ff6b35,#ffd200);
+  padding:44px 20px 36px;text-align:center;color:#1a0800;overflow:hidden;position:relative}
+.hdr::before{content:'⚡';position:absolute;font-size:12rem;opacity:.08;top:-30px;right:-20px;line-height:1}
+.hdr::after{content:'🔋';position:absolute;font-size:8rem;opacity:.08;bottom:-10px;left:10px;line-height:1}
+.hdr-badge{display:inline-block;background:rgba(0,0,0,.12);border-radius:100px;
+  padding:5px 18px;font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase;
+  margin-bottom:14px;position:relative;z-index:1;font-weight:700}
+.hdr h1{font-size:clamp(2rem,7vw,3.4rem);font-weight:900;line-height:1.1;
+  position:relative;z-index:1;margin-bottom:8px}
+.hdr p{font-size:.9rem;opacity:.7;position:relative;z-index:1;font-weight:600}
+
+/* WRAPPER */
+.wrap{max-width:900px;margin:0 auto;padding:32px 16px 60px}
+
+/* DEFINICIÓN */
+.def-card{background:#fff;border-radius:20px;padding:28px 30px;
+  box-shadow:0 4px 24px rgba(255,107,53,.12);border-left:6px solid #ff6b35;
+  margin-bottom:32px;display:flex;gap:20px;align-items:center}
+.def-icon{font-size:3.5rem;flex-shrink:0}
+.def-text .def-label{font-size:.7rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:#ff6b35;margin-bottom:6px}
+.def-text p{font-size:1rem;line-height:1.65;color:#333}
+.def-text strong{color:#e85d04}
+
+/* SECCIÓN TÍTULOS */
+.sec{display:flex;align-items:center;gap:14px;margin:36px 0 20px}
+.sec-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+.sec h2{font-size:clamp(1.1rem,3vw,1.45rem);font-weight:800}
+
+/* COMPONENTES GRID */
+.comp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:12px}
+@media(min-width:600px){.comp-grid{grid-template-columns:repeat(4,1fr)}}
+
+.comp-card{background:#fff;border-radius:18px;padding:22px 14px 18px;
+  text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.07);
+  border-top:5px solid var(--cc);transition:transform .2s,box-shadow .2s}
+.comp-card:hover{transform:translateY(-5px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.comp-icon{font-size:2.6rem;display:block;margin-bottom:10px}
+.comp-name{font-size:.85rem;font-weight:800;color:var(--cc);margin-bottom:4px}
+.comp-desc{font-size:.72rem;color:#666;line-height:1.4}
+.comp-ex{font-size:.68rem;color:#999;margin-top:4px;font-style:italic}
+
+.cc-gen{--cc:#f59e0b}
+.cc-con{--cc:#3b82f6}
+.cc-rec{--cc:#10b981}
+.cc-ctl{--cc:#ef4444}
+
+/* TIPOS DE CIRCUITO */
+.tipos-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:600px){.tipos-grid{grid-template-columns:repeat(3,1fr)}}
+
+.tipo-card{background:#fff;border-radius:18px;overflow:hidden;
+  box-shadow:0 2px 16px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s}
+.tipo-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.13)}
+.tipo-header{padding:16px 18px;color:#fff;display:flex;align-items:center;gap:10px}
+.tipo-header h3{font-size:1rem;font-weight:800}
+.tipo-header .th-icon{font-size:1.5rem}
+.tipo-body{padding:16px 18px}
+
+/* Diagramas ASCII visuales */
+.diagrama{background:#f8faff;border-radius:12px;padding:16px;margin:10px 0;
+  font-family:monospace;font-size:.78rem;line-height:1.8;color:#334;
+  text-align:center;border:1.5px solid #e2e8f0}
+.diagrama .d-label{font-family:'Poppins',sans-serif;font-size:.68rem;
+  color:#888;margin-top:8px;font-style:italic}
+
+.tipo-tag{display:inline-block;border-radius:100px;padding:3px 12px;
+  font-size:.68rem;font-weight:700;margin-bottom:8px}
+.tipo-desc{font-size:.8rem;color:#444;line-height:1.55;margin-bottom:10px}
+.tipo-pros,.tipo-cons{font-size:.75rem;line-height:1.6;color:#555}
+.tipo-pros strong{color:#16a34a}
+.tipo-cons strong{color:#dc2626}
+
+.t-serie .tipo-header{background:linear-gradient(135deg,#3b82f6,#1d4ed8)}
+.t-serie .tipo-tag{background:#eff6ff;color:#1d4ed8}
+
+.t-paralelo .tipo-header{background:linear-gradient(135deg,#10b981,#059669)}
+.t-paralelo .tipo-tag{background:#f0fdf4;color:#059669}
+
+.t-mixto .tipo-header{background:linear-gradient(135deg,#8b5cf6,#6d28d9)}
+.t-mixto .tipo-tag{background:#f5f3ff;color:#6d28d9}
+
+/* REGLA CLAVE */
+.regla{background:linear-gradient(135deg,#fff8e1,#fffde7);border-radius:16px;
+  padding:18px 22px;margin-top:20px;display:flex;gap:14px;align-items:flex-start;
+  border:2px solid #ffc107}
+.regla-icon{font-size:2rem;flex-shrink:0}
+.regla p{font-size:.85rem;font-weight:600;color:#7d5a00;line-height:1.6}
+.regla strong{color:#b45309}
+
+/* ATRIBUCIÓN */
+.attribution{background:#f0f4ff;border-radius:14px;padding:16px 20px;
+  margin-top:28px;border:1.5px solid #c7d2fe;font-size:.78rem;color:#444;line-height:1.6}
+.attribution .att-label{font-size:.68rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:#4361ee;margin-bottom:6px}
+.attribution a{color:#4361ee;font-weight:600}
+
+/* FOOTER */
+footer{text-align:center;padding:20px 16px;color:#999;font-size:.73rem;
+  border-top:1px solid #e0e8f0;margin-top:8px}
+footer a{color:#ff6b35;text-decoration:none}
+
+.skip-link{position:absolute;top:-100px;left:12px;background:#1a0d00;color:#fff;
+  padding:8px 16px;border-radius:0 0 8px 8px;font-weight:700;font-size:.88rem;
+  z-index:9999;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:0}
+:focus-visible{outline:3px solid #ff6b35;outline-offset:3px;border-radius:3px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+<nav role="navigation" aria-label="Navegación principal">
+  <a href="index.html" class="back">← Inicio</a>
+  <span class="nav-title">Circuitos Eléctricos · 2.º ESO</span>
+</nav>
+
+<div class="hdr" role="banner">
+  <div class="hdr-badge">Tecnología y Digitalización · 2.º ESO</div>
+  <h1>⚡ Circuitos Eléctricos</h1>
+  <p>Componentes · Tipos · Ejemplos</p>
+</div>
+
+<div class="wrap" id="contenido-principal">
+
+  <!-- DEFINICIÓN -->
+  <div class="def-card" role="region" aria-label="Definición de circuito eléctrico">
+    <span class="def-icon">🔋</span>
+    <div class="def-text">
+      <div class="def-label">¿Qué es?</div>
+      <p>Un <strong>circuito eléctrico</strong> es un camino <strong>cerrado</strong> por el que circula la corriente eléctrica desde el generador, pasa por los receptores y vuelve al punto de partida.</p>
+    </div>
+  </div>
+
+  <!-- COMPONENTES -->
+  <div class="sec">
+    <div class="sec-dot" style="background:#ff6b35"></div>
+    <h2>Componentes de un circuito</h2>
+  </div>
+
+  <div class="comp-grid" role="list" aria-label="Componentes de un circuito eléctrico">
+    <div class="comp-card cc-gen" role="listitem">
+      <span class="comp-icon">🔋</span>
+      <div class="comp-name">Generador</div>
+      <div class="comp-desc">Proporciona la energía que mueve la corriente</div>
+      <div class="comp-ex">Pila, batería, panel solar</div>
+    </div>
+    <div class="comp-card cc-con" role="listitem">
+      <span class="comp-icon">〰️</span>
+      <div class="comp-name">Conductor</div>
+      <div class="comp-desc">Transporta la corriente de un componente a otro</div>
+      <div class="comp-ex">Cables de cobre</div>
+    </div>
+    <div class="comp-card cc-rec" role="listitem">
+      <span class="comp-icon">💡</span>
+      <div class="comp-name">Receptor</div>
+      <div class="comp-desc">Transforma la energía eléctrica en otra útil</div>
+      <div class="comp-ex">Bombilla, motor, resistencia</div>
+    </div>
+    <div class="comp-card cc-ctl" role="listitem">
+      <span class="comp-icon">🔘</span>
+      <div class="comp-name">Control</div>
+      <div class="comp-desc">Abre o cierra el circuito cuando queremos</div>
+      <div class="comp-ex">Interruptor, pulsador</div>
+    </div>
+  </div>
+
+  <!-- TIPOS -->
+  <div class="sec">
+    <div class="sec-dot" style="background:#3b82f6"></div>
+    <h2>Tipos de circuitos</h2>
+  </div>
+
+  <div class="tipos-grid" role="list" aria-label="Tipos de circuitos eléctricos">
+
+    <!-- SERIE -->
+    <div class="tipo-card t-serie" role="listitem">
+      <div class="tipo-header">
+        <span class="th-icon">➡️</span>
+        <h3>Circuito en Serie</h3>
+      </div>
+      <div class="tipo-body">
+        <span class="tipo-tag">Un solo camino</span>
+        <p class="tipo-desc">Los componentes están conectados <strong>uno detrás de otro</strong>. La corriente pasa por todos en orden.</p>
+        <div class="diagrama" aria-label="Diagrama de circuito en serie">
+          🔋 ──── 💡 ──── 💡 ──── 🔋
+          <div class="d-label">La corriente pasa por las dos bombillas seguidas</div>
+        </div>
+        <p class="tipo-pros"><strong>⚠️ Inconveniente:</strong> Si falla uno, se apagan todos</p>
+        <p class="tipo-cons" style="margin-top:4px"><strong>✅ Uso típico:</strong> Luces de Navidad antiguas</p>
+      </div>
+    </div>
+
+    <!-- PARALELO -->
+    <div class="tipo-card t-paralelo" role="listitem">
+      <div class="tipo-header">
+        <span class="th-icon">⬆️</span>
+        <h3>Circuito en Paralelo</h3>
+      </div>
+      <div class="tipo-body">
+        <span class="tipo-tag">Varios caminos</span>
+        <p class="tipo-desc">Los componentes están en <strong>ramas independientes</strong>. La corriente se reparte.</p>
+        <div class="diagrama" aria-label="Diagrama de circuito en paralelo">
+          🔋 ──┬── 💡 ──┬── 🔋<br>
+               └── 💡 ──┘
+          <div class="d-label">Cada bombilla tiene su propio camino</div>
+        </div>
+        <p class="tipo-pros"><strong>✅ Ventaja:</strong> Si falla uno, los demás siguen</p>
+        <p class="tipo-cons" style="margin-top:4px"><strong>✅ Uso típico:</strong> Enchufes de tu casa</p>
+      </div>
+    </div>
+
+    <!-- MIXTO -->
+    <div class="tipo-card t-mixto" role="listitem">
+      <div class="tipo-header">
+        <span class="th-icon">🔀</span>
+        <h3>Circuito Mixto</h3>
+      </div>
+      <div class="tipo-body">
+        <span class="tipo-tag">Combinación</span>
+        <p class="tipo-desc">Combina partes en <strong>serie y en paralelo</strong>. Se resuelve por etapas.</p>
+        <div class="diagrama" aria-label="Diagrama de circuito mixto">
+          🔋 ── 💡 ──┬── 💡 ──┬── 🔋<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── 💡 ──┘
+          <div class="d-label">Una bombilla en serie + dos en paralelo</div>
+        </div>
+        <p class="tipo-pros"><strong>🔧 Uso típico:</strong> Instalaciones eléctricas complejas</p>
+        <p class="tipo-cons" style="margin-top:4px"><strong>📐 Cálculo:</strong> Se resuelve parte a parte</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- REGLA CLAVE -->
+  <div class="regla" role="note">
+    <span class="regla-icon">💡</span>
+    <p>Recuerda: la corriente <strong>solo circula si el circuito está cerrado</strong>. Si hay una rotura o el interruptor está abierto, el circuito se interrumpe y los receptores dejan de funcionar.</p>
+  </div>
+
+  <!-- ATRIBUCIÓN CC BY-SA -->
+  <div class="attribution" role="region" aria-label="Atribución y licencia">
+    <div class="att-label">📜 Atribución y licencia</div>
+    <p>Esta obra es una <strong>obra derivada</strong> basada en el artículo <a href="https://es.wikipedia.org/wiki/Circuito_el%C3%A9ctrico" target="_blank" rel="noopener">"Circuito eléctrico"</a> de Wikipedia en español, publicado bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener">CC BY-SA 4.0</a>. El contenido ha sido modificado sustancialmente en formato, estructura y lenguaje para adaptarlo al nivel de 2.º ESO. Esta obra derivada se publica bajo la misma licencia <strong>CC BY-SA 4.0</strong> por <strong>Charo Tejedo Albín</strong> (2026).</p>
+  </div>
+
+</div>
+
+<footer role="contentinfo">
+  <p>Tecnología y Digitalización · 2.º ESO · Charo Tejedo Albín</p>
+  <div style="margin-top:10px">
+    <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+      <img alt="Licencia Creative Commons BY-SA 4.0" style="border-width:0;vertical-align:middle"
+        src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png">
+    </a>
+    <p style="margin-top:6px;color:#aaa">
+      Obra derivada bajo <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a> ·
+      Basada en <a href="https://es.wikipedia.org/wiki/Circuito_el%C3%A9ctrico">Wikipedia: Circuito eléctrico</a> ·
+      <span style="background:#f0f4ff;border:1px solid #c7d2fe;border-radius:6px;padding:2px 8px;color:#4361ee;font-weight:600;font-size:.72rem">
+        📚 REA · <a href="https://charotejedo.github.io/recursos-pedagogicos/" style="color:#4361ee">GitHub Pages</a>
+      </span>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
