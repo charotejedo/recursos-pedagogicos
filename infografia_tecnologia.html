@@ -51,9 +51,7 @@ nav .nav-title{color:rgba(255,255,255,.6);font-size:.82rem}
 .sh-2{background:linear-gradient(135deg,#0077b6,#00b4d8)}
 .sh h2{font-size:clamp(1.05rem,3.5vw,1.5rem);font-weight:800}
 
-/* ── SECCIÓN 1 ─────────────────────────────── */
-
-/* Definición grande */
+/* ── SECCIÓN 1 ─────────────────── */
 .def-big{background:#fff;border-radius:20px;padding:26px 28px;
   box-shadow:0 4px 24px rgba(255,107,53,.12);border-left:6px solid #ff6b35;
   margin-bottom:28px;text-align:center}
@@ -63,7 +61,6 @@ nav .nav-title{color:rgba(255,255,255,.6);font-size:.82rem}
 .def-big .def-eq span{background:#fff3ee;color:#e85d04;border-radius:8px;
   padding:2px 10px;white-space:nowrap}
 
-/* Necesidades grid */
 .needs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
 @media(max-width:600px){.needs-grid{grid-template-columns:repeat(2,1fr)}}
 .nc{border-radius:18px;padding:18px 10px 14px;text-align:center;transition:transform .2s}
@@ -80,7 +77,6 @@ nav .nav-title{color:rgba(255,255,255,.6);font-size:.82rem}
 .nc-7{background:linear-gradient(145deg,#fce4ec,#f8bbd0);border:2px solid #ec407a}
 .nc-8{background:linear-gradient(145deg,#ede7f6,#d1c4e9);border:2px solid #7e57c2}
 
-/* Fórmula */
 .formula{display:flex;align-items:center;justify-content:center;
   flex-wrap:wrap;gap:6px;background:#fff;border-radius:20px;
   padding:20px 16px;box-shadow:0 4px 18px rgba(0,0,0,.07);margin-bottom:8px}
@@ -95,43 +91,75 @@ nav .nav-title{color:rgba(255,255,255,.6);font-size:.82rem}
 .fi-result .fi-icon{font-size:2rem}
 .fi-result .fi-label{font-size:.82rem;font-weight:800;color:#fff;letter-spacing:1px}
 
-/* ── SECCIÓN 2 ─────────────────────────────── */
-
-/* Intro método */
+/* ── SECCIÓN 2 — SERPENTINA ─────── */
 .met-intro{background:linear-gradient(135deg,#0077b6,#00b4d8);
-  border-radius:20px;padding:20px 24px;color:#fff;text-align:center;
-  margin-bottom:28px}
+  border-radius:20px;padding:20px 24px;color:#fff;text-align:center;margin-bottom:32px}
 .met-intro .mi-num{font-size:3rem;font-weight:900;opacity:.35;line-height:1}
 .met-intro p{font-size:.95rem;font-weight:600;line-height:1.5}
 .met-intro strong{background:rgba(255,255,255,.25);border-radius:6px;padding:1px 8px}
 
-/* Fases grid — snake layout */
-.fases{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:500px){.fases{grid-template-columns:1fr}}
+/* Contenedor scrollable en móvil */
+.snake-scroll{overflow-x:auto;padding-bottom:8px}
 
-.fase{display:flex;align-items:center;gap:12px;background:#fff;
-  border-radius:16px;padding:14px 16px;
-  box-shadow:0 2px 10px rgba(0,0,0,.06);
-  border-left:5px solid var(--fc);transition:transform .2s,box-shadow .2s}
-.fase:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
-.fase-num{font-size:1.8rem;font-weight:900;color:var(--fc);min-width:36px;
-  line-height:1;text-align:center}
-.fase-icon{font-size:1.8rem;flex-shrink:0}
-.fase-name{font-size:.88rem;font-weight:700;color:#1a1a2e;line-height:1.3}
-.fase-mini{font-size:.72rem;color:#777;margin-top:2px}
+/* Grid 9 columnas: círculo · flecha · círculo · flecha · círculo · flecha · círculo · flecha · círculo */
+.snake{
+  display:grid;
+  grid-template-columns:100px 44px 100px 44px 100px 44px 100px 44px 100px;
+  grid-template-rows:auto 40px auto;
+  align-items:center;
+  justify-content:center;
+  min-width:700px;
+  row-gap:0;
+  column-gap:0;
+}
 
-/* color vars per phase */
-.f1{--fc:#ff9800}.f2{--fc:#2196f3}.f3{--fc:#9c27b0}.f4{--fc:#4caf50}
-.f5{--fc:#ffc107}.f6{--fc:#e91e63}.f7{--fc:#00bcd4}.f8{--fc:#8bc34a}
-.f9{--fc:#673ab7}.f10{--fc:#ff5722}
+/* Círculos */
+.sc{width:100px;height:100px;border-radius:50%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:8px 6px;
+  box-shadow:0 6px 20px rgba(0,0,0,.18);color:#fff;cursor:default;
+  transition:transform .2s,box-shadow .2s}
+.sc:hover{transform:scale(1.1);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.sc .pn{font-size:.6rem;font-weight:800;opacity:.7;line-height:1;margin-bottom:1px}
+.sc .pe{font-size:1.65rem;line-height:1.15}
+.sc .pl{font-size:.56rem;font-weight:700;line-height:1.25;margin-top:2px}
 
-/* Arrow between phases */
-.fase-arrow{display:flex;justify-content:center;align-items:center;
-  font-size:1.4rem;color:#ccc;grid-column:1/-1;margin:-2px 0}
+/* Colores de cada fase */
+.s1 {background:linear-gradient(135deg,#3b82f6,#1d4ed8)}
+.s2 {background:linear-gradient(135deg,#6366f1,#4338ca)}
+.s3 {background:linear-gradient(135deg,#8b5cf6,#6d28d9)}
+.s4 {background:linear-gradient(135deg,#10b981,#059669)}
+.s5 {background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff}
+.s6 {background:linear-gradient(135deg,#ef4444,#b91c1c)}
+.s7 {background:linear-gradient(135deg,#f97316,#c2410c)}
+.s8 {background:linear-gradient(135deg,#84cc16,#4d7c0f);color:#fff}
+.s9 {background:linear-gradient(135deg,#06b6d4,#0e7490)}
+.s10{background:linear-gradient(135deg,#ec4899,#be185d)}
+
+/* Flechas horizontales */
+.arr{display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;color:#9ca3af;line-height:1;user-select:none}
+
+/* Fila de giro (fila 2 del grid) */
+/* Columnas 1-8 vacías, columna 9 tiene la flecha de bajada */
+.turn-space{grid-column:1/9;grid-row:2}
+.turn-down{grid-column:9;grid-row:2;display:flex;align-items:center;
+  justify-content:center;font-size:1.8rem;color:#9ca3af;line-height:1}
+
+/* Fila 3: fase 10 en col 1, flechas ←, hasta fase 6 en col 9 */
+/* Las posiciones son explícitas */
+.r2c1{grid-column:1;grid-row:3}
+.r2c2{grid-column:2;grid-row:3}
+.r2c3{grid-column:3;grid-row:3}
+.r2c4{grid-column:4;grid-row:3}
+.r2c5{grid-column:5;grid-row:3}
+.r2c6{grid-column:6;grid-row:3}
+.r2c7{grid-column:7;grid-row:3}
+.r2c8{grid-column:8;grid-row:3}
+.r2c9{grid-column:9;grid-row:3}
 
 /* Nota final */
 .nota-vis{background:linear-gradient(135deg,#fff8e1,#fffde7);
-  border-radius:16px;padding:18px 22px;margin-top:20px;
+  border-radius:16px;padding:18px 22px;margin-top:24px;
   display:flex;gap:14px;align-items:center;
   border:2px dashed #ffc107}
 .nota-vis .ni{font-size:2.2rem;flex-shrink:0}
@@ -160,9 +188,7 @@ footer a{color:#0077b6;text-decoration:none}
 
 <div class="wrap">
 
-  <!-- ══════════════════════════════════ -->
-  <!--  SECCIÓN 1                        -->
-  <!-- ══════════════════════════════════ -->
+  <!-- ══════════════ SECCIÓN 1 ══════════════ -->
   <div class="sh">
     <div class="sh-circle sh-1">1</div>
     <h2>La tecnología y las necesidades humanas</h2>
@@ -177,73 +203,27 @@ footer a{color:#0077b6;text-decoration:none}
   </div>
 
   <div class="needs-grid" role="list" aria-label="Necesidades humanas">
-    <div class="nc nc-1" role="listitem">
-      <span class="ni">🏠</span>
-      <div class="nn">Refugio</div>
-      <div class="ne">casas, pisos…</div>
-    </div>
-    <div class="nc nc-2" role="listitem">
-      <span class="ni">🍎</span>
-      <div class="nn">Alimentación</div>
-      <div class="ne">nevera, microondas…</div>
-    </div>
-    <div class="nc nc-3" role="listitem">
-      <span class="ni">👕</span>
-      <div class="nn">Vestido</div>
-      <div class="ne">pantalón, camisa…</div>
-    </div>
-    <div class="nc nc-4" role="listitem">
-      <span class="ni">🚌</span>
-      <div class="nn">Transporte</div>
-      <div class="ne">autobús, avión…</div>
-    </div>
-    <div class="nc nc-5" role="listitem">
-      <span class="ni">💬</span>
-      <div class="nn">Comunicación</div>
-      <div class="ne">teléfono, TV…</div>
-    </div>
-    <div class="nc nc-6" role="listitem">
-      <span class="ni">🎮</span>
-      <div class="nn">Ocio</div>
-      <div class="ne">videojuegos, parques…</div>
-    </div>
-    <div class="nc nc-7" role="listitem">
-      <span class="ni">💊</span>
-      <div class="nn">Salud e higiene</div>
-      <div class="ne">jeringuilla, jabón…</div>
-    </div>
-    <div class="nc nc-8" role="listitem">
-      <span class="ni">💼</span>
-      <div class="nn">Trabajo</div>
-      <div class="ne">ordenador, herramientas…</div>
-    </div>
+    <div class="nc nc-1" role="listitem"><span class="ni">🏠</span><div class="nn">Refugio</div><div class="ne">casas, pisos…</div></div>
+    <div class="nc nc-2" role="listitem"><span class="ni">🍎</span><div class="nn">Alimentación</div><div class="ne">nevera, microondas…</div></div>
+    <div class="nc nc-3" role="listitem"><span class="ni">👕</span><div class="nn">Vestido</div><div class="ne">pantalón, camisa…</div></div>
+    <div class="nc nc-4" role="listitem"><span class="ni">🚌</span><div class="nn">Transporte</div><div class="ne">autobús, avión…</div></div>
+    <div class="nc nc-5" role="listitem"><span class="ni">💬</span><div class="nn">Comunicación</div><div class="ne">teléfono, TV…</div></div>
+    <div class="nc nc-6" role="listitem"><span class="ni">🎮</span><div class="nn">Ocio</div><div class="ne">videojuegos, parques…</div></div>
+    <div class="nc nc-7" role="listitem"><span class="ni">💊</span><div class="nn">Salud e higiene</div><div class="ne">jeringuilla, jabón…</div></div>
+    <div class="nc nc-8" role="listitem"><span class="ni">💼</span><div class="nn">Trabajo</div><div class="ne">ordenador, herramientas…</div></div>
   </div>
 
   <div class="formula" role="img" aria-label="Ciencia más Técnica más Sociedad igual a Tecnología">
-    <div class="fi">
-      <span class="fi-icon">🔭</span>
-      <span class="fi-label">Ciencia</span>
-    </div>
+    <div class="fi"><span class="fi-icon">🔭</span><span class="fi-label">Ciencia</span></div>
     <span class="f-op">+</span>
-    <div class="fi">
-      <span class="fi-icon">🔧</span>
-      <span class="fi-label">Técnica</span>
-    </div>
+    <div class="fi"><span class="fi-icon">🔧</span><span class="fi-label">Técnica</span></div>
     <span class="f-op">+</span>
-    <div class="fi">
-      <span class="fi-icon">👥</span>
-      <span class="fi-label">Sociedad</span>
-    </div>
+    <div class="fi"><span class="fi-icon">👥</span><span class="fi-label">Sociedad</span></div>
     <span class="f-eq">=</span>
-    <div class="fi-result">
-      <span class="fi-icon">⚙️</span>
-      <span class="fi-label">TECNOLOGÍA</span>
-    </div>
+    <div class="fi-result"><span class="fi-icon">⚙️</span><span class="fi-label">TECNOLOGÍA</span></div>
   </div>
 
-  <!-- ══════════════════════════════════ -->
-  <!--  SECCIÓN 2                        -->
-  <!-- ══════════════════════════════════ -->
+  <!-- ══════════════ SECCIÓN 2 ══════════════ -->
   <div class="sh">
     <div class="sh-circle sh-2">2</div>
     <h2>El método de proyectos</h2>
@@ -254,106 +234,65 @@ footer a{color:#0077b6;text-decoration:none}
     <p>El <strong>método de proyectos</strong> es una forma ordenada de resolver problemas en <strong>10 fases</strong></p>
   </div>
 
-  <div class="fases" role="list" aria-label="Las 10 fases del método de proyectos">
+  <!-- ── SERPENTINA ───────────────────────── -->
+  <div class="snake-scroll">
+    <div class="snake" role="list" aria-label="Las 10 fases del método de proyectos">
 
-    <div class="fase f1" role="listitem">
-      <div class="fase-num">1</div>
-      <div class="fase-icon">🔍</div>
-      <div>
-        <div class="fase-name">Detectar el problema</div>
-        <div class="fase-mini">¿Qué necesitamos resolver?</div>
+      <!-- FILA 1: fases 1 → 2 → 3 → 4 → 5 -->
+      <div class="sc s1" role="listitem" aria-label="Fase 1: Detectar el problema">
+        <span class="pn">01</span><span class="pe">🔍</span><span class="pl">Detectar el problema</span>
       </div>
-    </div>
-
-    <div class="fase f2" role="listitem">
-      <div class="fase-num">2</div>
-      <div class="fase-icon">📚</div>
-      <div>
-        <div class="fase-name">Buscar información</div>
-        <div class="fase-mini">Recopilar y analizar datos</div>
+      <div class="arr" aria-hidden="true">→</div>
+      <div class="sc s2" role="listitem" aria-label="Fase 2: Buscar información">
+        <span class="pn">02</span><span class="pe">📚</span><span class="pl">Buscar información</span>
       </div>
-    </div>
-
-    <div class="fase f3" role="listitem">
-      <div class="fase-num">3</div>
-      <div class="fase-icon">💡</div>
-      <div>
-        <div class="fase-name">Soluciones posibles</div>
-        <div class="fase-mini">Pensar alternativas</div>
+      <div class="arr" aria-hidden="true">→</div>
+      <div class="sc s3" role="listitem" aria-label="Fase 3: Soluciones posibles">
+        <span class="pn">03</span><span class="pe">💡</span><span class="pl">Soluciones posibles</span>
       </div>
-    </div>
-
-    <div class="fase f4" role="listitem">
-      <div class="fase-num">4</div>
-      <div class="fase-icon">✅</div>
-      <div>
-        <div class="fase-name">Elegir la solución</div>
-        <div class="fase-mini">La más viable y adecuada</div>
+      <div class="arr" aria-hidden="true">→</div>
+      <div class="sc s4" role="listitem" aria-label="Fase 4: Elegir solución">
+        <span class="pn">04</span><span class="pe">✅</span><span class="pl">Elegir solución</span>
       </div>
-    </div>
-
-    <div class="fase f5" role="listitem">
-      <div class="fase-num">5</div>
-      <div class="fase-icon">✏️</div>
-      <div>
-        <div class="fase-name">Diseño</div>
-        <div class="fase-mini">Bocetos y esquemas</div>
+      <div class="arr" aria-hidden="true">→</div>
+      <div class="sc s5" role="listitem" aria-label="Fase 5: Diseño">
+        <span class="pn">05</span><span class="pe">✏️</span><span class="pl">Diseño</span>
       </div>
-    </div>
 
-    <div class="fase f6" role="listitem">
-      <div class="fase-num">6</div>
-      <div class="fase-icon">📋</div>
-      <div>
-        <div class="fase-name">Planificación</div>
-        <div class="fase-mini">Materiales y tareas</div>
+      <!-- GIRO: flecha hacia abajo en columna 9 -->
+      <div class="turn-space" aria-hidden="true"></div>
+      <div class="turn-down" aria-hidden="true">↓</div>
+
+      <!-- FILA 2: fase 10 ← 9 ← 8 ← 7 ← 6  (izquierda ← derecha) -->
+      <div class="sc s10 r2c1" role="listitem" aria-label="Fase 10: Memoria final">
+        <span class="pn">10</span><span class="pe">📝</span><span class="pl">Memoria final</span>
       </div>
-    </div>
-
-    <div class="fase f7" role="listitem">
-      <div class="fase-num">7</div>
-      <div class="fase-icon">🔨</div>
-      <div>
-        <div class="fase-name">Construcción</div>
-        <div class="fase-mini">Fabricar el producto</div>
+      <div class="arr r2c2" aria-hidden="true">←</div>
+      <div class="sc s9 r2c3" role="listitem" aria-label="Fase 9: Presentación">
+        <span class="pn">09</span><span class="pe">🎤</span><span class="pl">Presentación</span>
       </div>
-    </div>
-
-    <div class="fase f8" role="listitem">
-      <div class="fase-num">8</div>
-      <div class="fase-icon">🔬</div>
-      <div>
-        <div class="fase-name">Comprobación</div>
-        <div class="fase-mini">¿Funciona bien?</div>
+      <div class="arr r2c4" aria-hidden="true">←</div>
+      <div class="sc s8 r2c5" role="listitem" aria-label="Fase 8: Comprobación">
+        <span class="pn">08</span><span class="pe">🔬</span><span class="pl">Comprobación</span>
       </div>
-    </div>
-
-    <div class="fase f9" role="listitem">
-      <div class="fase-num">9</div>
-      <div class="fase-icon">🎤</div>
-      <div>
-        <div class="fase-name">Presentación</div>
-        <div class="fase-mini">Exponer ante el grupo</div>
+      <div class="arr r2c6" aria-hidden="true">←</div>
+      <div class="sc s7 r2c7" role="listitem" aria-label="Fase 7: Construcción">
+        <span class="pn">07</span><span class="pe">🔨</span><span class="pl">Construcción</span>
       </div>
-    </div>
-
-    <div class="fase f10" role="listitem">
-      <div class="fase-num">10</div>
-      <div class="fase-icon">📝</div>
-      <div>
-        <div class="fase-name">Memoria final</div>
-        <div class="fase-mini">Documentar todo el proceso</div>
+      <div class="arr r2c8" aria-hidden="true">←</div>
+      <div class="sc s6 r2c9" role="listitem" aria-label="Fase 6: Planificación">
+        <span class="pn">06</span><span class="pe">📋</span><span class="pl">Planificación</span>
       </div>
-    </div>
 
-  </div>
+    </div><!-- /snake -->
+  </div><!-- /snake-scroll -->
 
   <div class="nota-vis" role="note">
     <span class="ni">🔄</span>
     <p>Las fases están conectadas — ¡puedes volver atrás para mejorar tu proyecto!</p>
   </div>
 
-</div>
+</div><!-- /wrap -->
 
 <footer role="contentinfo">
   <p>Tecnología y Digitalización · 2.º ESO · Aula de Charo Tejedo &nbsp;·&nbsp;
