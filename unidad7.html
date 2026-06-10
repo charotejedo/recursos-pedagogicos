@@ -103,6 +103,23 @@ li{margin-bottom:7px;line-height:1.6;font-size:.93rem}
 .skip-link:focus{top:0}
 :focus-visible{outline:3px solid var(--a);outline-offset:3px;border-radius:3px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* ─── Alto contraste ─── */
+body.ac{background:#000!important;color:#fff!important}
+body.ac details,body.ac .sbody{background:#111!important;color:#fff!important;border-color:#fff!important}
+body.ac summary{background:#1a1a1a!important;color:#fff!important}
+body.ac .box,body.ac .qitem{background:#222!important;color:#fff!important;border-color:#fff!important}
+body.ac .tbl td{background:#111!important;color:#fff!important}
+body.ac .tbl th{background:#333!important;color:#fff!important}
+body.ac .qopt{background:#222!important;color:#fff!important;border-color:#888!important}
+body.ac main,body.ac .qlinks a{background:#111!important;color:#fff!important}
+/* ─── Modo dislexia ─── */
+body.dx{font-family:Arial,Helvetica,sans-serif!important;line-height:2.1!important;letter-spacing:.05em!important;word-spacing:.15em!important}
+/* ─── Rutas quiz ─── */
+.ruta-card{border-radius:14px;padding:16px 20px;margin-top:14px;font-weight:600;display:flex;align-items:center;gap:12px;font-size:.9rem}
+.ruta-r{background:#fff8f0;border:2px solid #ff9800;color:#7d4e00}
+.ruta-r a{color:#e65100;font-weight:800;text-decoration:underline}
+.ruta-a{background:#f0fff4;border:2px solid #4caf50;color:#1b5e20}
+.ruta-a a{color:#2e7d32;font-weight:800;text-decoration:underline}
 /* ─── Quiz interactivo ─── */
 .qitem{background:#fff;border:1.5px solid #e8ecf4;border-radius:14px;padding:20px 22px;margin-bottom:14px}
 .qtext{font-weight:600;font-size:.95rem;margin-bottom:14px;display:flex;gap:12px;align-items:flex-start;line-height:1.5;margin-top:0}
@@ -132,6 +149,8 @@ li{margin-bottom:7px;line-height:1.6;font-size:.93rem}
   <span style="margin-left:auto;display:flex;gap:6px;align-items:center">
     <button style="background:#fff;border:1.5px solid rgba(255,107,53,.4);color:#1a0d00;border-radius:20px;padding:4px 10px;font-size:.75rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif" onclick="var s=parseFloat(getComputedStyle(document.documentElement).fontSize);document.documentElement.style.fontSize=Math.min(22,s+2)+'px'" aria-label="Aumentar tamaño del texto">A+</button>
     <button style="background:#fff;border:1.5px solid rgba(255,107,53,.4);color:#1a0d00;border-radius:20px;padding:4px 10px;font-size:.75rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif" onclick="var s=parseFloat(getComputedStyle(document.documentElement).fontSize);document.documentElement.style.fontSize=Math.max(12,s-2)+'px'" aria-label="Reducir tamaño del texto">A−</button>
+    <button style="background:#fff;border:1.5px solid rgba(255,107,53,.4);color:#1a0d00;border-radius:20px;padding:4px 10px;font-size:.75rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif" onclick="document.body.classList.toggle('ac')" aria-label="Activar alto contraste" title="Alto contraste">🌓</button>
+    <button style="background:#fff;border:1.5px solid rgba(255,107,53,.4);color:#1a0d00;border-radius:20px;padding:4px 10px;font-size:.75rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif" onclick="document.body.classList.toggle('dx')" aria-label="Activar modo dislexia" title="Modo dislexia">Aa</button>
   </span>
 </nav>
 
@@ -153,9 +172,26 @@ li{margin-bottom:7px;line-height:1.6;font-size:.93rem}
   <a href="#s9">9. Conversión energía</a>
   <a href="#s10">10. Medio ambiente</a>
   <a href="#auto">✏️ Autoevaluación</a>
+  <a href="#refuerzo">📚 Refuerzo</a>
+  <a href="#ampliacion">🚀 Ampliación</a>
+  <a href="#video">🎬 Vídeo</a>
 </div>
 
 <main id="contenido-principal">
+
+<!-- ─── VÍDEO ─── -->
+<div id="video" style="background:#fff;border-radius:18px;padding:22px 26px;margin-bottom:16px;border:2px solid #e8ecf4;box-shadow:0 2px 12px rgba(0,0,0,.06)">
+  <div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--a);margin-bottom:8px">🎬 Aprende también en vídeo</div>
+  <p style="font-size:.85rem;color:#555;margin-bottom:14px">Si prefieres aprender viendo un vídeo, aquí tienes una explicación visual sobre electricidad básica. Activa los <strong>subtítulos (CC)</strong> desde el reproductor.</p>
+  <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:#f0f0f0">
+    <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
+      src="https://www.youtube.com/embed/Lgh9pDqBmhg"
+      title="Electricidad básica para 2º ESO — vídeo educativo con subtítulos"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen loading="lazy"></iframe>
+  </div>
+  <p style="font-size:.73rem;color:#aaa;margin-top:8px">📝 El vídeo incluye subtítulos automáticos. Actívalos con el botón CC en el reproductor de YouTube.</p>
+</div>
 
 <!-- ─── S1 ─── -->
 <details open id="s1">
@@ -465,6 +501,14 @@ li{margin-bottom:7px;line-height:1.6;font-size:.93rem}
   <p style="color:#666;font-size:.88rem;margin-bottom:22px">Haz clic en la respuesta que creas correcta. ¡Recibirás corrección inmediata!</p>
   <div id="qbox" role="list" aria-label="Preguntas de autoevaluación"></div>
   <div id="qres" class="quiz-result" role="alert" aria-live="polite" style="display:none"></div>
+  <div id="ruta-r" class="ruta-card ruta-r" style="display:none" role="alert" aria-live="polite">
+    <span style="font-size:1.4rem">📚</span>
+    <span>Necesitas repasar algunos conceptos. <a href="#refuerzo">→ Ve a las actividades de refuerzo</a></span>
+  </div>
+  <div id="ruta-a" class="ruta-card ruta-a" style="display:none" role="alert" aria-live="polite">
+    <span style="font-size:1.4rem">🚀</span>
+    <span>¡Muy bien! Estás preparado para avanzar. <a href="#ampliacion">→ Ve a las actividades de ampliación</a></span>
+  </div>
 </div>
 <script>
 (function(){
@@ -502,10 +546,93 @@ li{margin-bottom:7px;line-height:1.6;font-size:.93rem}
       var msg=score===QUIZ.length?'¡Perfecto! Todo correcto.':score>=3?'Bien. Repasa los errores.':'Repasa la teoría e inténtalo de nuevo.';
       res.textContent='Resultado: '+score+'/'+QUIZ.length+' — '+msg;
       res.className='quiz-result '+p;
+      var rr=document.getElementById('ruta-r'),ra=document.getElementById('ruta-a');
+      if(score<=2){rr.style.display='flex';}else{ra.style.display='flex';}
     }
   });
 })();
 </script>
+
+<!-- ─── REFUERZO ─── -->
+<div id="refuerzo" style="background:#fff8f0;border-radius:18px;padding:28px;border:2px solid #ff9800;margin-top:20px">
+  <h2 style="font-size:1.25rem;color:#e65100;margin-bottom:4px">📚 Actividades de refuerzo</h2>
+  <p style="font-size:.82rem;color:#888;margin-bottom:20px">Para consolidar los conceptos básicos antes de continuar.</p>
+
+  <div style="background:#fff;border-radius:12px;padding:18px;margin-bottom:12px;border:1.5px solid #ffe0b2">
+    <div style="font-weight:700;font-size:.85rem;color:#e65100;margin-bottom:10px">🔗 R1 — Une cada componente con su función</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:.82rem;color:#555">
+      <div style="background:#fff8f0;padding:8px 12px;border-radius:8px">🔋 Generador</div><div style="background:#f8f9fc;padding:8px 12px;border-radius:8px">Transporta la corriente</div>
+      <div style="background:#fff8f0;padding:8px 12px;border-radius:8px">〰️ Conductor</div><div style="background:#f8f9fc;padding:8px 12px;border-radius:8px">Abre o cierra el circuito</div>
+      <div style="background:#fff8f0;padding:8px 12px;border-radius:8px">💡 Receptor</div><div style="background:#f8f9fc;padding:8px 12px;border-radius:8px">Proporciona la energía</div>
+      <div style="background:#fff8f0;padding:8px 12px;border-radius:8px">🔘 Interruptor</div><div style="background:#f8f9fc;padding:8px 12px;border-radius:8px">Transforma la energía eléctrica</div>
+    </div>
+    <p style="font-size:.72rem;color:#aaa;margin-top:8px">Anota las respuestas en tu cuaderno y compruébalas en la sección 3.</p>
+  </div>
+
+  <div style="background:#fff;border-radius:12px;padding:18px;border:1.5px solid #ffe0b2">
+    <div style="font-weight:700;font-size:.85rem;color:#e65100;margin-bottom:10px">✅ R2 — Verdadero o Falso</div>
+    <ul style="font-size:.84rem;list-style:none;padding:0;color:#444">
+      <li style="padding:7px 0;border-bottom:1px solid #f5e6d0">⬜ La corriente circula por un circuito abierto.</li>
+      <li style="padding:7px 0;border-bottom:1px solid #f5e6d0">⬜ El cobre es un buen conductor eléctrico.</li>
+      <li style="padding:7px 0;border-bottom:1px solid #f5e6d0">⬜ En un circuito en paralelo, si falla uno se apagan todos.</li>
+      <li style="padding:7px 0">⬜ La intensidad se mide en amperios (A).</li>
+    </ul>
+    <p style="font-size:.72rem;color:#aaa;margin-top:8px">Consulta las secciones 1, 2 y 7 para comprobar tus respuestas.</p>
+  </div>
+</div>
+
+<!-- ─── AMPLIACIÓN ─── -->
+<div id="ampliacion" style="background:#f0fff4;border-radius:18px;padding:28px;border:2px solid #4caf50;margin-top:16px">
+  <h2 style="font-size:1.25rem;color:#2e7d32;margin-bottom:4px">🚀 Actividades de ampliación</h2>
+  <p style="font-size:.82rem;color:#888;margin-bottom:20px">Para el alumnado que domina los conceptos y quiere profundizar.</p>
+
+  <div style="background:#fff;border-radius:12px;padding:18px;margin-bottom:12px;border:1.5px solid #c8e6c9">
+    <div style="font-weight:700;font-size:.85rem;color:#2e7d32;margin-bottom:10px">🧮 A1 — Circuito mixto</div>
+    <p style="font-size:.84rem;color:#444">R1 = 6 Ω en serie con R2 = 12 Ω y R3 = 4 Ω en paralelo. Tensión total = 24 V. Calcula:</p>
+    <ul style="font-size:.83rem;color:#444;margin-top:8px">
+      <li>Resistencia equivalente de R2 y R3 en paralelo</li>
+      <li>Resistencia total del circuito</li>
+      <li>Intensidad total que proporciona el generador</li>
+    </ul>
+  </div>
+
+  <div style="background:#fff;border-radius:12px;padding:18px;border:1.5px solid #c8e6c9">
+    <div style="font-weight:700;font-size:.85rem;color:#2e7d32;margin-bottom:10px">🔍 A2 — Investiga: superconductividad</div>
+    <p style="font-size:.84rem;color:#444">Investiga qué es la <strong>superconductividad</strong> y cómo podría revolucionar el transporte de electricidad. Prepara una explicación de 2 minutos para compartir con la clase.</p>
+    <p style="font-size:.78rem;color:#888;margin-top:8px">Puedes elegir el formato de entrega: texto, vídeo, podcast o presentación.</p>
+  </div>
+</div>
+
+<!-- ─── ENTREGA ─── -->
+<div style="background:#fff;border-radius:18px;padding:28px;border:2px solid #e8ecf4;margin-top:16px">
+  <h2 style="font-size:1.25rem;margin-bottom:4px">📤 Elige cómo entregar tu trabajo</h2>
+  <p style="font-size:.82rem;color:#888;margin-bottom:16px">Puedes enviar tu producto final en el formato que prefieras. Lo importante es demostrar que has aprendido.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px">
+    <div style="background:#f8f9fc;border:2px solid #e2e6f0;border-radius:12px;padding:14px 8px;text-align:center;font-size:.76rem;font-weight:700;color:#444"><span style="font-size:1.7rem;display:block;margin-bottom:6px">📝</span>Texto escrito</div>
+    <div style="background:#f8f9fc;border:2px solid #e2e6f0;border-radius:12px;padding:14px 8px;text-align:center;font-size:.76rem;font-weight:700;color:#444"><span style="font-size:1.7rem;display:block;margin-bottom:6px">🎤</span>Podcast / audio</div>
+    <div style="background:#f8f9fc;border:2px solid #e2e6f0;border-radius:12px;padding:14px 8px;text-align:center;font-size:.76rem;font-weight:700;color:#444"><span style="font-size:1.7rem;display:block;margin-bottom:6px">🎬</span>Vídeo</div>
+    <div style="background:#f8f9fc;border:2px solid #e2e6f0;border-radius:12px;padding:14px 8px;text-align:center;font-size:.76rem;font-weight:700;color:#444"><span style="font-size:1.7rem;display:block;margin-bottom:6px">🗺️</span>Infografía</div>
+    <div style="background:#f8f9fc;border:2px solid #e2e6f0;border-radius:12px;padding:14px 8px;text-align:center;font-size:.76rem;font-weight:700;color:#444"><span style="font-size:1.7rem;display:block;margin-bottom:6px">🖼️</span>Presentación</div>
+  </div>
+  <p style="font-size:.73rem;color:#aaa;margin-top:12px">📨 Envía tu trabajo a través de la tarea en Microsoft Teams.</p>
+</div>
+
+<!-- ─── ADAPTACIÓN ─── -->
+<div style="background:linear-gradient(135deg,#f5f0ff,#ede7f6);border:2px solid #9c27b0;border-radius:18px;padding:28px;margin-top:16px">
+  <div style="font-weight:800;font-size:.85rem;color:#6a1b9a;margin-bottom:12px;display:flex;align-items:center;gap:8px">
+    ♿ Adaptación tecnológica — Alumno/a con dislexia (anonimizado)
+  </div>
+  <p style="font-size:.86rem;color:#333;line-height:1.7;margin-bottom:12px">Para este alumno se han activado las siguientes adaptaciones digitales:</p>
+  <ul style="font-size:.84rem;color:#444;line-height:1.85;padding-left:4px;list-style:none">
+    <li>🔡 <strong>Modo dislexia</strong> — fuente sin serifa, mayor espaciado entre letras y líneas (botón "Aa" en la barra superior)</li>
+    <li>🔤 <strong>Ajuste de tamaño de texto</strong> — botones A+ / A− sin alterar el diseño</li>
+    <li>📋 <strong>Contenido en bloques cortos</strong> — información dividida con títulos claros, sin párrafos largos</li>
+    <li>🎬 <strong>Vídeo con subtítulos</strong> — el mismo contenido disponible en formato audiovisual</li>
+    <li>✅ <strong>Autoevaluación de opción múltiple</strong> — reduce la carga de escritura</li>
+    <li>🌓 <strong>Alto contraste</strong> — modo oscuro activable para reducir la fatiga visual</li>
+  </ul>
+  <p style="font-size:.76rem;color:#7b1fa2;margin-top:14px;font-weight:600">Esta solución mejora la inclusión porque elimina barreras de acceso al texto sin modificar los objetivos de aprendizaje.</p>
+</div>
 
 </main>
 
